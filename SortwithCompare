@@ -85,6 +85,7 @@ int main()
     int countSS = 0;
     countingSort(a,n,countCS);
     radixSort(a,n,countRS);
+    shellSort(a,n,countSS);
     cout << "num of compare in Counting Sort: " << countCS << endl;
     cout << "num of compare in Radix Sort: " << countRS << endl;
     cout << "num of compare in Shell Sort: " << countSS << endl;
