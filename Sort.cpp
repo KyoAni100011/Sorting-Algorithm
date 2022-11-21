@@ -54,6 +54,64 @@ void heapSort(int a[], int n)
 		heapify(a,i,0);
 	}
 }
+void countingSort(int a[], int n)
+{
+    int max = a[0];
+    for(int i = 1; i < n; i++)
+	{
+        if(a[i] > max)
+		{
+            max = a[i];
+        }
+    }
+    max = max + 1;
+    int b[max] ={0}, c[max] , d[n];
+    for(int i = 0; i < n; i++)
+	{
+        b[a[i]]++;
+    }
+
+    cout << endl;
+    int sum = 0;
+    for(int i = 0; i < max; i++)
+	{
+        sum = sum + b[i];
+        c[i] = sum;
+    }
+    cout << endl;
+    for(int i = 0; i < n; i++)
+	{
+        d[c[a[i]] - b[a[i]]] = a[i];
+        b[a[i]] -- ;
+    }
+
+}
+
+void radixSort(int a[], int n)
+{
+	int exp = 1;
+    
+    for (int it = 0; it < 9; it++) 
+	{
+        vector<int> buckets[10];
+        
+        for (int i = 0; i < n; i++) 
+		{
+            buckets[(a[i] / exp) % 10].push_back(a[i]);
+        }
+        
+        n = 0;
+        for (vector<int> bucket : buckets) 
+		{
+            for (int v : bucket) 
+			{
+                a[n++] = v;
+            }
+        }
+        
+        exp *= 10;
+    }
+}
 
 int main()
 {
