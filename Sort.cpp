@@ -54,6 +54,7 @@ void heapSort(int a[], int n)
 		heapify(a,i,0);
 	}
 }
+
 void countingSort(int a[], int n)
 {
     int max = a[0];
@@ -112,6 +113,7 @@ void radixSort(int a[], int n)
         exp *= 10;
     }
 }
+
 void shellSort(int arr[], int n)
 {
     for (int gap = n/2; gap > 0; gap /= 2)
@@ -129,6 +131,62 @@ void shellSort(int arr[], int n)
         }
     }
 }
+
+template<class ItemType>
+void insertionSort(ItemType a[], int n)
+{
+    for (int unsorted = 1; unsorted < n; unsorted++)
+    {
+        ItemType nextItem = a[unsorted];
+        int loc = unsorted;
+        while ((loc > 0) && (a[loc - 1] > nextItem))
+        {
+            a[loc] = a[loc - 1];
+            loc--;
+        }
+        a[loc] = nextItem;
+    }
+}
+
+int partition(int a[], int l, int r)
+{
+    int pivot = a[l];
+    int i = l - 1;
+    int j = r + 1;
+
+    while (1)
+    {
+        do
+        {
+            i++;
+        } while (a[i] < pivot);
+        
+        do
+        {
+            j--;
+        } while (a[j] > pivot);
+        
+        if (i < j)
+            swap(a[i], a[j]);
+        else
+            return j;    
+    }
+}
+
+// quickSort(a, 0, n - 1);
+void quickSort(int a[], int l, int r)
+{
+    if (l >= r)
+        return;
+
+    if (l < r)
+    {
+        int m = partition(a, l, r);
+        quickSort(a, l, m);
+        quickSort(a, m + 1, r);
+    }
+}
+
 int main()
 {
 	return 0;
