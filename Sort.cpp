@@ -132,12 +132,11 @@ void shellSort(int arr[], int n)
     }
 }
 
-template<class ItemType>
-void insertionSort(ItemType a[], int n)
+void insertionSort(int a[], int n)
 {
     for (int unsorted = 1; unsorted < n; unsorted++)
     {
-        ItemType nextItem = a[unsorted];
+        int nextItem = a[unsorted];
         int loc = unsorted;
         while ((loc > 0) && (a[loc - 1] > nextItem))
         {
