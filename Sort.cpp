@@ -187,6 +187,89 @@ void quickSort(int a[], int l, int r)
     }
 }
 
+void flashSort(int a[], int n)
+{
+    /* declare variables */
+    int m, minVal, max;
+    int *l;
+    double c1;
+
+    m = int(0.45 * n);   
+  
+    /* allocate space for the l vector */
+    l = new int[m]{};
+
+    /***** CLASS FORMATION ****/
+
+    minVal = a[0];
+    max = 0;
+    for (int i = 1; i < n; i++)
+    {
+        if (a[i] < minVal)
+            minVal = a[i];
+        if (a[i] > a[max])
+            max = i;
+    }
+
+    if (a[max] == minVal)
+    {
+        cout << "All the numbers are identical, the list is sorted\n";
+        return;
+    }
+    
+    c1 = (double)(m - 1) / (a[max] - minVal);
+
+    l[0]=-1; /* since the base of the "a" (data) array is 0 */
+    for (int i = 0; i < n; i++)
+    {
+        int k = floor(c1 * (a[i] - minVal));
+        l[k]++;
+    }
+
+    for (int i = 1; i < m; i++)
+		l[i] += l[i - 1];
+
+    swap(a[max], a[0]);
+
+    int nmove = 0;
+	int j = 0;
+	int k = m - 1;
+    float flash;
+
+    while (nmove < n)
+	{
+		while (j > l[k])
+		{
+			j++;
+			k = floor(c1*(a[j] - minVal));
+		}
+		flash = a[j];
+		while (j <= l[k])
+		{
+			k = floor(c1*(flash - minVal));
+			int hold = a[l[k]];
+			a[l[k]] = flash;
+            l[k]--;
+			flash = hold;
+			nmove++;
+		}
+	}
+
+    /* use insertion sort */
+    for (int unsorted = 1; unsorted < n; unsorted++)
+    {
+        int nextItem = a[unsorted];
+        int loc = unsorted;
+        while ((loc > 0) && (a[loc - 1] > nextItem))
+        {
+            a[loc] = a[loc - 1];
+            loc--;
+        }
+        a[loc] = nextItem;
+    }
+    
+    delete[] l; /* need to free the memory we grabbed for the l vector */
+}
 
 int main()
 {
