@@ -4,28 +4,28 @@ using namespace std;
 void countingSort(int a[], int n, int &count)
 {
     int max = a[0];
-    for(int i = 1; i < n; i++ && ++count)
+    for(int i = 1; i < n && ++count; i++ )
 	{
-        if(a[i] > max && ++count)
+        if( ++count && a[i] > max )
 		{
             max = a[i];
         }
     }
     max = max + 1;
     int b[max] ={0}, c[max] , d[n];
-    for(int i = 0; i < n; i++ && ++count)
+    for(int i = 0; i < n && ++count; i++ )
 	{
         b[a[i]]++;
     }
     
     int sum = 0;
-    for(int i = 0; i < max; i++ && ++count)
+    for(int i = 0; i < max && ++count; i++ )
 	{
         sum = sum + b[i];
         c[i] = sum;
     }
    
-    for(int i = 0; i < n; i++ && ++count)
+    for(int i = 0; i < n && ++count; i++ )
 	{
         d[c[a[i]] - b[a[i]]] = a[i];
         b[a[i]] -- ;
@@ -37,11 +37,11 @@ void radixSort(int a[], int n, int &count)
 {
 	int exp = 1;
     
-    for (int it = 0; it < 9; it++ && ++count) 
+    for (int it = 0; it < 9 && ++count; it++ ) 
 	{
         vector<int> buckets[10];
         
-        for (int i = 0; i < n; i++  && ++count) 
+        for (int i = 0; i < n && ++count; i++  ) 
 		{
             buckets[(a[i] / exp) % 10].push_back(a[i]);
         }
@@ -49,7 +49,7 @@ void radixSort(int a[], int n, int &count)
         n = 0;
         for (vector<int> bucket : buckets && ++count) 
 		{
-            for (int v : bucket &&  ++count) 
+            for (int v : bucket && ++count) 
 			{
                 a[n++] = v;
             }
@@ -60,15 +60,15 @@ void radixSort(int a[], int n, int &count)
 }
 void shellSort(int arr[], int n, int &count)
 {
-    for (int gap = n/2; gap > 0; gap /= 2 && ++count)
+    for (int gap = n/2; gap > 0 && ++count; gap /= 2 )
     {
        
-        for (int i = gap; i < n; i += 1 && ++count)
+        for (int i = gap; i < n && ++count; i += 1 )
         {
             int temp = arr[i];
  
             int j;           
-            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap && ++count)
+            for (j = i; j >= gap && arr[j - gap] > temp && count += 2; j -= gap )
             {
                 arr[j] = arr[j - gap];
             }
@@ -76,143 +76,6 @@ void shellSort(int arr[], int n, int &count)
         }
     }
 }
-
-void insertionSort(int a[], int n, long long int &count_compares)
-{
-    for (int unsorted = 1; ++count_compares && unsorted < n; unsorted++)
-    {
-        int nextItem = a[unsorted];
-        int loc = unsorted;
-        while ((++count_compares && (loc > 0)) && (++count_compares && (a[loc - 1] > nextItem)))
-        {
-            a[loc] = a[loc - 1];
-            loc--;
-        }
-        a[loc] = nextItem;
-    }
-}
-
-int partition(int a[], int l, int r, long long int &count_compares)
-{
-    int pivot = a[l];
-    int i = l - 1;
-    int j = r + 1;
-
-    while (1)
-    {
-        do
-        {
-            i++;
-        } while (++count_compares && a[i] < pivot);
-        
-        do
-        {
-            j--;
-        } while (++count_compares && a[j] > pivot);
-        
-        if (++count_compares && (i < j))
-            swap(a[i], a[j]);
-        else
-            return j;    
-    }
-}
-
-void quickSort(int a[], int l, int r, long long int &count_compares)
-{
-    if (++count_compares && l >= r)
-        return;
-
-    if (++count_compares && l < r)
-    {
-        int m = partition(a, l, r, count_compares);
-        quickSort(a, l, m, count_compares);
-        quickSort(a, m + 1, r, count_compares);
-    }
-}
-
-void flashSort(int a[], int n, long long int &count_compares)
-{
-    /* declare variables */
-    int m, minVal, max;
-    int *l;
-    double c1;
-
-    m = int(0.45 * n);   
-  
-    /* allocate space for the l vector */
-    l = new int[m]{};
-
-    /***** CLASS FORMATION ****/
-
-    minVal = a[0];
-    max = 0;
-    for (int i = 1; ++count_compares && i < n; i++)
-    {
-        if (++count_compares && a[i] < minVal)
-            minVal = a[i];
-        if (++count_compares && a[i] > a[max])
-            max = i;
-    }
-
-    if (++count_compares && a[max] == minVal)
-    {
-        cout << "All the numbers are identical, the list is sorted\n";
-        return;
-    }
-    
-    c1 = (double)(m - 1) / (a[max] - minVal);
-
-    l[0]=-1; /* since the base of the "a" (data) array is 0 */
-    for (int i = 0; ++count_compares && i < n; i++)
-    {
-        int k = floor(c1 * (a[i] - minVal));
-        l[k]++;
-    }
-
-    for (int i = 1; ++count_compares && i < m; i++)
-		l[i] += l[i - 1];
-
-    swap(a[max], a[0]);
-
-    int nmove = 0;
-	int j = 0;
-	int k = m - 1;
-    float flash;
-
-    while (++count_compares && nmove < n)
-	{
-		while (++count_compares && j > l[k])
-		{
-			j++;
-			k = floor(c1*(a[j] - minVal));
-		}
-		flash = a[j];
-		while (++count_compares && j <= l[k])
-		{
-			k = floor(c1*(flash - minVal));
-			int hold = a[l[k]];
-			a[l[k]] = flash;
-            l[k]--;
-			flash = hold;
-			nmove++;
-		}
-	}
-
-    /* use insertion sort */
-    for (int unsorted = 1; ++count_compares &&  unsorted < n; unsorted++)
-    {
-        int nextItem = a[unsorted];
-        int loc = unsorted;
-        while ((++count_compares && (loc > 0)) && (++count_compares && (a[loc - 1] > nextItem)))
-        {
-            a[loc] = a[loc - 1];
-            loc--;
-        }
-        a[loc] = nextItem;
-    }
-    delete[] l;
-}
-
 int main()
 {
     int n = 10;
