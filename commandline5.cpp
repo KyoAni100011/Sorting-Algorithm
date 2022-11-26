@@ -95,7 +95,6 @@ void commandline5 (int argc, char* argv[]){
     cout << "Comparisons: " << count_compares1 << " | " << count_compares2 << '\n';
 }
 
-
 void commandline4 (int argc, char* argv[]){
     ifstream fileIn;
     fileIn.open(argv[4] , ios:: in);
@@ -142,4 +141,73 @@ void commandline4 (int argc, char* argv[]){
     cout << "Running time: " << end1 - start1 << " | " << end2 - start2 << '\n';
     cout << "Comparisons: " << count_compares1 << " | " << count_compares2 << '\n';
     fileIn.close();
+}
+
+void createFile(string file_name)
+{
+    srand((unsigned int)time(NULL));
+
+    ofstream file(file_name, ios::out);
+    file << "10000\n";
+
+    for (int i = 0; i < 10000; i++)
+	{
+		file << rand()%10 << " ";
+	}
+
+    file.close();
+}
+
+void readFile(int *&a, int &n, string file_name)
+{
+    ifstream file(file_name, ios::in);
+    int num, i = 0;
+    file >> n;
+
+    a = new int[n];
+    
+    while(file >> num)
+    {
+        a[i] = num;
+        i++;
+    }
+}
+
+
+void commandline1 (int argc, char* argv[])
+{
+    int *a = NULL, *b = NULL, n;
+    long long int comparision = 0;
+    string file_name = "input.txt";
+    createFile(file_name);
+    readFile(a,n,file_name);
+
+    cout << "ALGORITHM MODE\n";
+    cout << "Algorithm: " << argv[2] << "\n";
+    cout << "Input file: " << argv[3] << "\n";
+    cout << "Input size: " << n << "\n";
+    cout << "-----------------------------------------\n";
+
+    if(!strcmp(argv[4],"-time"))
+    {
+        clock_t start = clock();
+        activateSort(argv[2],a,n);
+        clock_t end = clock();
+        cout << "Running time: " << double(end - start) << "ms\n";
+    }
+    else if(!strcmp(argv[4],"-comp"))
+    {
+        activateSortCount(argv[2],a,n,comparision);
+        cout << "Comparision: " << comparision;
+    }
+    else
+    {
+        createTempArray(b,a,n);
+        clock_t start = clock();
+        activateSort(argv[2],a,n);
+        clock_t end = clock();
+        activateSortCount(argv[2],b,n,comparision);
+        cout << "Running time: " << double(end - start) << "ms\n";
+        cout << "Comparision: " << comparision;
+    }
 }
