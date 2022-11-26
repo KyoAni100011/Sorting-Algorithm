@@ -1,16 +1,16 @@
 #include <iostream>
 
-void activateSortCount(char *, int *a, int ,long long int &);
-void selectionSortCount(int, int, long long int &);
+void activateSortCount(char *, int *, int ,long long int &);
+void selectionSortCount(int *, int, long long int &);
 void insertionSortCount(int *, int, long long int &);
 void bubbleSortCount (int *, int , long long int &);
 void shakerSortCount (int *, int , long long int &);
 void shellSortCount(int *, int, long long int &);
-void heapify(int *, int, long long int &);
+void heapifyCount(int *, int, long long int &);
 void heapSortCount(int *, int, long long int &);
-void merge (int*, int, int, int, long long int &);
+void mergeCount(int*, int, int, int, long long int &);
 void mergeSortCount (int*, int, int, long long int &);
-int partition(int *, int, int, long long int &);
+int partitionCount(int *, int, int, long long int &);
 void quickSortCount(int *, int, int, long long int &);
 void countingSortCount(int *, int, long long int &);
 void radixSortCount(int *, int, long long int &);

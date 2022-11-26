@@ -1,14 +1,7 @@
 #include "data_generate.h"	
+#include <algorithm>
 
-template <class T>
-void HoanVi(T &a, T &b)
-{
-	T x = a;
-	a = b;
-	b = x;
-}
-
-//-------------------------------------------------
+using namespace std;
 
 // Generate random data
 void GenerateRandomData(int a[], int n)
@@ -51,7 +44,7 @@ void GenerateNearlySortedData(int a[], int n)
 	{
 		int r1 = rand()%n;
 		int r2 = rand()%n;
-		HoanVi(a[r1], a[r2]);
+		swap(a[r1], a[r2]);
 	}
 }
 

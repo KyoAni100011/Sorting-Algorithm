@@ -132,7 +132,7 @@ void shellSortCount(int arr[], int n, long long int &count_compares)
 }
 
 
-void merge (int* a, int l, int m , int r, long long int &count_compares){
+void mergeCount(int* a, int l, int m , int r, long long int &count_compares){
     int first1 = l, last1 = m, first2 = m + 1, last2 = r; 
 
     int *b = new int [100000];
@@ -164,11 +164,11 @@ void mergeSortCount (int* a, int l, int r, long long int &count_compares){
         int m = (l + r)/2;
         mergeSortCount (a, l, m, count_compares);
         mergeSortCount (a, m + 1, r,count_compares);
-        merge (a,l,m,r,count_compares);
+        mergeCount(a,l,m,r,count_compares);
     }
 }
 
-void heapify(int *a, int n, int i, long long int &count_compares)
+void heapifyCount(int *a, int n, int i, long long int &count_compares)
 {
 	int left = 2*i + 1, right = 2*i + 2, largest = i;
 	if((++count_compares && left < n) && (++count_compares && a[left] > a[largest]))
@@ -182,7 +182,7 @@ void heapify(int *a, int n, int i, long long int &count_compares)
 	if(++count_compares && largest != i)
 	{
 		swap(a[largest],a[i]);
-		heapify(a,n,largest,count_compares);
+		heapifyCount(a,n,largest,count_compares);
 	}
 }
 
@@ -191,17 +191,17 @@ void heapSortCount(int *a, int n, long long int &count_compares)
     count_compares = 0;
 	for(int i = n/2 - 1; ++count_compares && i >= 0; i--)
 	{
-		heapify(a,n,i,count_compares);
+		heapifyCount(a,n,i,count_compares);
 	}
 	
 	for(int i = n - 1; ++count_compares && i >= 0; i--)
 	{
 		swap(a[i],a[0]);
-		heapify(a,i,0,count_compares);
+		heapifyCount(a,i,0,count_compares);
 	}
 }
 
-int partition(int *a, int left, int right, long long int &count_compares)
+int partitionCount(int *a, int left, int right, long long int &count_compares)
 {
     int pivot = a[left];
     int i = left - 1;
@@ -224,6 +224,8 @@ int partition(int *a, int left, int right, long long int &count_compares)
         else
             return j;    
     }
+
+    return 0;
 }
 
 void quickSortCount(int *a, int left, int right, long long int &count_compares)
@@ -233,7 +235,7 @@ void quickSortCount(int *a, int left, int right, long long int &count_compares)
 
     if (++count_compares && left < right)
     {
-        int mid = partition(a, left, right, count_compares);
+        int mid = partitionCount(a, left, right, count_compares);
         quickSortCount(a, left, mid, count_compares);
         quickSortCount(a, mid + 1, right, count_compares);
     }
@@ -277,7 +279,7 @@ void countingSortCount(int *a, int n, long long int &count_compares)
 
 void radixSortCount(int *a, int n, long long int &count_compares)
 {
-	int exp = 1;
+	/*int exp = 1;
     
     for (int it = 0; it < 9 && ++count_compares; it++ ) 
 	{
@@ -298,7 +300,7 @@ void radixSortCount(int *a, int n, long long int &count_compares)
         }
         
         exp *= 10;
-    }
+    }*/
 }
 
 void flashSortCount(int a[], int n, long long int &count_compares)

@@ -288,7 +288,7 @@ void countingSort(int *a, int n)
 
 void radixSort(int *a, int n)
 {
-	int exp = 1;
+	/*int exp = 1;
     
     for (int it = 0; it < 9; it++) 
 	{
@@ -310,7 +310,7 @@ void radixSort(int *a, int n)
         }
         
         exp *= 10;
-    }
+    }*/
 }
 
 void flashSort(int *a, int n)
