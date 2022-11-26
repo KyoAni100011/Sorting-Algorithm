@@ -1,7 +1,14 @@
 #include <iostream>
+#include <algorithm>
+#include <string.h>
+#include <vector>
+#include <cmath>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
 
 void testAllSort(int *b, int *a, int n);
-void activateSort(char *, int *, int); 
+void activateSort(char *, int *, int);
 void selectionSort(int *, int);
 void insertionSort(int *, int);
 void bubbleSort(int *, int);

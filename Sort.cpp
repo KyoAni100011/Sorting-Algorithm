@@ -1,15 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <string.h>
-#include <vector>
-#include <cmath>
-
-#include <stdlib.h>
-#include <time.h>
-
 #include "sort.h"
-
-using namespace std;
 
 void testAllSort(int *b, int *a, int n)
 {
@@ -40,7 +29,7 @@ void testAllSort(int *b, int *a, int n)
     // shakerSort(b,n);
     // end1 = clock();
     // cout << "Shaker Sort: " << double(end1-start1) << "ms\n";
-    
+
     // for(int i = 0; i < n; i++) b[i] = a[i];
     // start1 = clock();
     // shellSort(b,n);
@@ -65,14 +54,15 @@ void testAllSort(int *b, int *a, int n)
     // end1 = clock();
     // cout << "Quick Sort: " << double(end1-start1) << "ms\n";
 
-
     // Error
-    for(int i = 0; i < n; i++) b[i] = a[i];
+    for (int i = 0; i < n; i++)
+        b[i] = a[i];
     start1 = clock();
-    countingSort(b,n);
+    countingSort(b, n);
     end1 = clock();
-    cout << "Counting Sort: " << double(end1-start1) << "ms\n";
-    for(int i = 0; i < n; i++) cout << b[i] << " ";
+    cout << "Counting Sort: " << double(end1 - start1) << "ms\n";
+    for (int i = 0; i < n; i++)
+        cout << b[i] << " ";
 
     // for(int i = 0; i < n; i++) b[i] = a[i];
     // start1 = clock();
@@ -89,37 +79,48 @@ void testAllSort(int *b, int *a, int n)
 
 void activateSort(char *sort_type, int *a, int n)
 {
-    if(!strcmp(sort_type,"selection-sort")) selectionSort(a,n);
-    else if (!strcmp(sort_type, "insertion-sort")) insertionSort(a,n);
-    else if (!strcmp(sort_type, "bubble-sort")) bubbleSort(a,n);
-    else if (!strcmp(sort_type, "shaker-sort")) shakerSort(a,n);
-    else if (!strcmp(sort_type, "shell-sort")) shellSort(a,n);
-    else if (!strcmp(sort_type, "heap-sort")) heapSort(a,n);
-    else if (!strcmp(sort_type, "merge-sort")) mergeSort(a,0,n - 1);
-    else if (!strcmp(sort_type, "quick-sort")) quickSort(a,0,n - 1);
-    else if (!strcmp(sort_type, "counting-sort")) countingSort(a,n);
-    else if (!strcmp(sort_type, "radix-sort")) radixSort(a,n);
-    else if (!strcmp(sort_type, "flash-sort")) flashSort(a,n);
+    if (!strcmp(sort_type, "selection-sort"))
+        selectionSort(a, n);
+    else if (!strcmp(sort_type, "insertion-sort"))
+        insertionSort(a, n);
+    else if (!strcmp(sort_type, "bubble-sort"))
+        bubbleSort(a, n);
+    else if (!strcmp(sort_type, "shaker-sort"))
+        shakerSort(a, n);
+    else if (!strcmp(sort_type, "shell-sort"))
+        shellSort(a, n);
+    else if (!strcmp(sort_type, "heap-sort"))
+        heapSort(a, n);
+    else if (!strcmp(sort_type, "merge-sort"))
+        mergeSort(a, 0, n - 1);
+    else if (!strcmp(sort_type, "quick-sort"))
+        quickSort(a, 0, n - 1);
+    else if (!strcmp(sort_type, "counting-sort"))
+        countingSort(a, n);
+    else if (!strcmp(sort_type, "radix-sort"))
+        radixSort(a, n);
+    else if (!strcmp(sort_type, "flash-sort"))
+        flashSort(a, n);
 }
 
 void selectionSort(int *a, int n)
 {
-	int max;
-	for(int i = n-1; i > 0; i--)
-	{
-		max = i;
-		for(int j = i-1; j >= 0; j--)
-		{
-			if(a[j] > a[max])
-			{
-				max = j;
-			}
-		}
-		if(max != i)
-		{
-			swap(a[max],a[i]);
-		}
-	}
+    int max;
+    for (int i = n - 1; i > 0; i--)
+    {
+        max = i;
+        for (int j = i - 1; j >= 0; j--)
+        {
+            if (a[j] > a[max])
+            {
+                max = j;
+            }
+        }
+        if (max != i)
+        {
+            swap(a[max], a[i]);
+        }
+    }
 }
 
 void insertionSort(int *a, int n)
@@ -137,70 +138,72 @@ void insertionSort(int *a, int n)
     }
 }
 
-void bubbleSort (int *a, int n)
+void bubbleSort(int *a, int n)
 {
-    for (int j = 1; j < n ; j++)
+    for (int j = 1; j < n; j++)
     {
         bool flag = false;
         for (int i = n - 1; i >= j; i--)
         {
-            if (a[i] < a[i-1]) 
+            if (a[i] < a[i - 1])
             {
-                swap(a[i], a[i-1]);
+                swap(a[i], a[i - 1]);
                 flag = true;
             }
         }
-        if (!flag) break;
+        if (!flag)
+            break;
     }
 }
 
-void shakerSort (int *a, int n)
+void shakerSort(int *a, int n)
 {
-    int left = 0, right = n - 1, k = -1;   
+    int left = 0, right = n - 1, k = -1;
 
-    while (left < right){
+    while (left < right)
+    {
         int tmp_k = k;
 
         for (int i = right; i > left; i--)
         {
-            if (a[i] < a[i-1])
+            if (a[i] < a[i - 1])
             {
-                swap(a[i], a[i-1]);
+                swap(a[i], a[i - 1]);
                 k = i - 1;
             }
         }
 
-        if (tmp_k == k) break;
+        if (tmp_k == k)
+            break;
 
-        left = k + 1;   
+        left = k + 1;
 
         for (int i = left; i < right; i++)
         {
-            if (a[i+1] < a[i])
+            if (a[i + 1] < a[i])
             {
-                swap(a[i], a[i+1]);
-                k = i + 1; 
+                swap(a[i], a[i + 1]);
+                k = i + 1;
             }
         }
 
-        right = k - 1; 
+        right = k - 1;
     }
 }
-
 
 void shellSort(int *a, int n)
 {
     int j, temp;
-    for (int gap = n/2; gap > 0; gap /= 2)
+    for (int gap = n / 2; gap > 0; gap /= 2)
     {
-        
+
         for (int i = gap; i < n; i += 1)
         {
-            temp = a[i];          
+            temp = a[i];
             for (j = i; j >= gap && a[j - gap] > temp; j -= gap)
-			{
+            {
                 a[j] = a[j - gap];
-			}
+            }
             a[j] = temp;
         }
     }
@@ -208,52 +211,54 @@ void shellSort(int *a, int n)
 
 void heapify(int *a, int n, int i)
 {
-	int left = 2*i + 1, right = 2*i + 2, largest = i;
-	if(left < n && a[left] > a[largest])
-	{
-		largest = left;
-	}
-	if(right < n && a[right] > a[largest])
-	{
-		largest = right;
-	}
-	if(largest != i)
-	{
-		swap(a[largest],a[i]);
-		heapify(a,n,largest);
-	}
+    int left = 2 * i + 1, right = 2 * i + 2, largest = i;
+    if (left < n && a[left] > a[largest])
+    {
+        largest = left;
+    }
+    if (right < n && a[right] > a[largest])
+    {
+        largest = right;
+    }
+    if (largest != i)
+    {
+        swap(a[largest], a[i]);
+        heapify(a, n, largest);
+    }
 }
 
 void heapSort(int *a, int n)
 {
-	for(int i = n/2 - 1; i >= 0; i--)
-	{
-		heapify(a,n,i);
-	}
-	
-	for(int i = n - 1; i >= 0; i--)
-	{
-		swap(a[i],a[0]);
-		heapify(a,i,0);
-	}
+    for (int i = n / 2 - 1; i >= 0; i--)
+    {
+        heapify(a, n, i);
+    }
+
+    for (int i = n - 1; i >= 0; i--)
+    {
+        swap(a[i], a[0]);
+        heapify(a, i, 0);
+    }
 }
 
 void merge(int *a, int left, int mid, int right)
 {
-    int i,j,k;
+    int i, j, k;
     int n1 = mid + 1 - left, n2 = right - mid;
     int L[n1], R[n2];
 
-    for(int m = 0; m < n1; m++) L[m] = a[left + m];
-    for(int m = 0; m < n2; m++) R[m] = a[mid + 1 + m];
+    for (int m = 0; m < n1; m++)
+        L[m] = a[left + m];
+    for (int m = 0; m < n2; m++)
+        R[m] = a[mid + 1 + m];
 
     i = 0;
     j = 0;
     k = left;
 
-    while(i < n1 && j < n2)
+    while (i < n1 && j < n2)
     {
-        if(L[i] >= R[j])
+        if (L[i] >= R[j])
         {
             a[k] = R[j];
             j++;
@@ -266,14 +271,14 @@ void merge(int *a, int left, int mid, int right)
         k++;
     }
 
-    while(i < n1)
+    while (i < n1)
     {
         a[k] = L[i];
         i++;
         k++;
     }
 
-    while(j < n2)
+    while (j < n2)
     {
         a[k] = R[j];
         j++;
@@ -283,13 +288,13 @@ void merge(int *a, int left, int mid, int right)
 
 void mergeSort(int *a, int left, int right)
 {
-    if(left < right)
+    if (left < right)
     {
         int mid = (left + right) / 2;
         mergeSort(a, left, mid);
         mergeSort(a, mid + 1, right);
-        
-        merge(a,left, mid, right);
+
+        merge(a, left, mid, right);
     }
 }
 
@@ -305,16 +310,16 @@ int partition(int *a, int left, int right)
         {
             i++;
         } while (a[i] < pivot);
-        
+
         do
         {
             j--;
         } while (a[j] > pivot);
-        
+
         if (i < j)
             swap(a[i], a[j]);
         else
-            return j;    
+            return j;
     }
 }
 
@@ -335,76 +340,76 @@ void countingSort(int *a, int n)
 {
     int max = a[0];
 
-    for(int i = 1; i < n; i++)
-	{
-        if(a[i] > max)
-		{
+    for (int i = 1; i < n; i++)
+    {
+        if (a[i] > max)
+        {
             max = a[i];
         }
     }
 
     max = max + 1;
 
-    int b[max] ={0}, c[max] , d[n];
-    for(int i = 0; i < n; i++)
-	{
+    int b[max] = {0}, c[max], d[n];
+    for (int i = 0; i < n; i++)
+    {
         b[a[i]]++;
     }
 
     int sum = 0;
 
-    for(int i = 0; i < max; i++)
-	{
+    for (int i = 0; i < max; i++)
+    {
         sum = sum + b[i];
         c[i] = sum;
     }
-  
-    for(int i = 0; i < n; i++)
-	{
+
+    for (int i = 0; i < n; i++)
+    {
         d[c[a[i]] - b[a[i]]] = a[i];
-        b[a[i]] -- ;
+        b[a[i]]--;
     }
-    for(int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++)
+    {
         a[i] = d[i];
     }
-
 }
 
 void radixSort(int *a, int n)
 {
-	int exp = 1;
-    
-    for (int it = 0; it < 9; it++) 
-	{
+    int exp = 1;
+
+    for (int it = 0; it < 9; it++)
+    {
         vector<int> buckets[10];
-        
-        for (int i = 0; i < n; i++) 
-		{
+
+        for (int i = 0; i < n; i++)
+        {
             buckets[(a[i] / exp) % 10].push_back(a[i]);
         }
-        
+
         n = 0;
 
-        for (vector<int> bucket : buckets) 
-		{
-            for (int v : bucket) 
-			{
+        for (vector<int> bucket : buckets)
+        {
+            for (int v : bucket)
+            {
                 a[n++] = v;
             }
         }
-        
+
         exp *= 10;
     }
 }
 
 void flashSort(int *a, int n)
 {
-    int m, minVal, max;
+    int m, minVal, max, nmove, j, k;
     int *l;
-    double c1;
+    double c1, flash;
 
-    m = int(0.45 * n);   
-  
+    m = int(0.45 * n);
+
     l = new int[m]{};
 
     minVal = a[0];
@@ -418,8 +423,11 @@ void flashSort(int *a, int n)
             max = i;
     }
 
-    if (a[max] == minVal) { return; }
-    
+    if (a[max] == minVal)
+    {
+        return;
+    }
+
     c1 = (double)(m - 1) / (a[max] - minVal);
 
     l[0] = -1;
@@ -431,39 +439,37 @@ void flashSort(int *a, int n)
     }
 
     for (int i = 1; i < m; i++)
-		l[i] += l[i - 1];
+        l[i] += l[i - 1];
 
     swap(a[max], a[0]);
 
-    int nmove = 0;
-	int j = 0;
-	int k = m - 1;
-    float flash;
+    nmove = 0;
+    j = 0;
+    k = m - 1;
+    flash;
 
     while (nmove < n)
-	{
-		while (j > l[k])
-		{
-			j++;
-			k = floor(c1*(a[j] - minVal));
-		}
+    {
+        while (j > l[k])
+        {
+            j++;
+            k = floor(c1 * (a[j] - minVal));
+        }
 
-		flash = a[j];
-        
-		while (j <= l[k])
-		{
-			k = floor(c1*(flash - minVal));
-			int hold = a[l[k]];
-			a[l[k]] = flash;
+        flash = a[j];
+
+        while (j <= l[k])
+        {
+            k = floor(c1 * (flash - minVal));
+            int hold = a[l[k]];
+            a[l[k]] = flash;
             l[k]--;
-			flash = hold;
-			nmove++;
-		}
-	}
+            flash = hold;
+            nmove++;
+        }
+    }
 
-    insertionSort(a,n);
-    
+    insertionSort(a, n);
+
     delete[] l;
 }
-
-
