@@ -13,4 +13,10 @@ int partition(int *a, int left, int right);
 void quickSort(int *a, int left, int right);
 void countingSort(int *a, int n);
 void radixSort(int *a, int n);
+<<<<<<< HEAD
 void flashSort(int *a, int n);
+=======
+void flashSprt(int *a, int n);
+
+
+>>>>>>> adafec31cd6a2941f02609113c1718d1385de5c3
