@@ -107,7 +107,6 @@ int main (int argc, char *argv[]){
             cout << "Comparisons: " << count_compares1 << " | " << count_compares2 << '\n';
         }
         //cmd 2
-        else
         
     }
 
