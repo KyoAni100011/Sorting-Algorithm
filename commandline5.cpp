@@ -94,3 +94,52 @@ void commandline5 (int argc, char* argv[]){
     cout << "Running time: " << end1 - start1 << " | " << end2 - start2 << '\n';
     cout << "Comparisons: " << count_compares1 << " | " << count_compares2 << '\n';
 }
+
+
+void commandline4 (int argc, char* argv[]){
+    ifstream fileIn;
+    fileIn.open(argv[4] , ios:: in);
+    int data_size = 0;
+    while(!fileIn.eof()){
+        data_size++;
+    }
+    int *a = new int [data_size];
+    int *array = new int [data_size];
+    for(int i = 0; i < data_size;i++){
+        fileIn >> array[i];
+    }
+
+    string data_type = dataOrder (a,data_size,argv[5]);
+
+    cout << '\n' << "Algorithm: " << argv[2] << " | " << argv[3];
+    cout << '\n' << "Input file: " << argv[4];
+    cout << '\n' << "Input order: " << data_size;
+    cout << "\n--------------------------------\n";
+
+    //initialized count_compares
+    long long int count_compares1 = 0, count_compares2 = 0;
+            
+    //Algorithm1
+
+    clock_t start1 = clock();
+
+    activateSortCount(argv[2],array,data_size,count_compares1);
+            
+    clock_t end1 = clock();
+
+    delete [] array;
+
+    // //Algorithm2
+
+    clock_t start2 = clock();
+
+    activateSortCount(argv[3],array,data_size,count_compares2);
+           
+    clock_t end2 = clock();
+
+    delete [] array;
+
+    cout << "Running time: " << end1 - start1 << " | " << end2 - start2 << '\n';
+    cout << "Comparisons: " << count_compares1 << " | " << count_compares2 << '\n';
+    fileIn.close();
+}
