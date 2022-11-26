@@ -1,7 +1,26 @@
 #include <iostream>
 #include <algorithm>
+#include <string.h>
+#include <vector>
 #include <cmath>
 #include "sortCompare.h"
+
+using namespace std;
+
+void activateSortCount(char *sort_type, int *a, int n, long long int &count_compares)
+{
+    if(!strcmp(sort_type,"selection-sort")) selectionSortCount(a,n,count_compares);
+    else if (!strcmp(sort_type, "insertion-sort")) insertionSortCount(a,n,count_compares);
+    else if (!strcmp(sort_type, "bubble-sort")) bubbleSortCount(a,n,count_compares);
+    else if (!strcmp(sort_type, "shaker-sort")) shakerSortCount(a,n,count_compares);
+    else if (!strcmp(sort_type, "shell-sort")) shellSortCount(a,n,count_compares);
+    else if (!strcmp(sort_type, "heap-sort")) heapSortCount(a,n,count_compares);
+    else if (!strcmp(sort_type, "merge-sort")) mergeSortCount(a,0,n - 1,count_compares);
+    else if (!strcmp(sort_type, "quick-sort")) quickSortCount(a,0,n - 1,count_compares);
+    else if (!strcmp(sort_type, "counting-sort")) countingSortCount(a,n,count_compares);
+    else if (!strcmp(sort_type, "radix-sort")) radixSortCount(a,n,count_compares);
+    else if (!strcmp(sort_type, "flash-sort")) flashSortCount(a,n,count_compares);
+}
 
 
 void selectionSortCount(int *a, int n, long long int &count_compares)

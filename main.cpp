@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
         {   
             //cmd line 5
             cout << "Run cmd 5";
-            commandline5(size, argc, argv);
+            commandline5(argc, argv);
         }
     }
     else

@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <string.h>
 #include <string>
@@ -6,27 +5,18 @@
 #include <time.h>
 #include <fstream>
 #include "data_generate.h"
-#include "merge_sort.h"
-#include "bubble_sort.h"
-#include "shaker_sort.h"
+#include "sort.h"
+#include "sortCompare.h"
 
 using namespace std;
 
 string dataOrder (int *a, int data_size, string data_type){
-    /* 
-        • -rand: randomized data 0
-        • -sorted: sorted data 1
-        • -rev: reverse sorted data 2
-        • -nsorted: nearly sorted data 3
-    */
-
     if (data_type == "-rand"){
         GenerateData(a, data_size,0);
         return "Randomized Data ";
     }
     else if (data_type == "-sorted") {
         GenerateData (a, data_size, 1);
-        cout << 1;
         return "Sorted Data ";
     }
     else if (data_type == "-rev") {
@@ -41,15 +31,14 @@ string dataOrder (int *a, int data_size, string data_type){
     return 0;
 }
 
-void tempArray (int *a, int *b, int n){
+void createTempArray (int *a, int *b, int n){
     for (int i = 0; i < n; i++){
         b[i] = a[i];
     }
 }
 
 void inputFile (string data_type, int *a, int size, string file_name){
-    fstream f;
-    f.open (file_name);
+    ofstream f(file_name , ios::out);
 
     f << data_type << '\n';
 
@@ -61,26 +50,14 @@ void inputFile (string data_type, int *a, int size, string file_name){
     f.close();
 }
 
-void commandline5 (int size[], int argc, char* argv[]){
-    //size
-    int data_size, flag = 0; 
-
-    for (int i = 0; i < 6; i++){
-        if (atoi(argv[4]) == size[i]) {
-            data_size = size[i];
-            flag = 1;
-        }
-    } 
-
-    if (!flag) return;
-
-    //initialized array
+void commandline5 (int argc, char* argv[]){
+    int data_size = atoi(argv[4]);
     int *a = new int [data_size];
     int *array1 = new int [data_size];
     int *array2 = new int [data_size];
 
-    string data_type = argv[5];
-    data_type = dataOrder (a,data_size,data_type);
+    string data_type = dataOrder (a,data_size,argv[5]);
+
     cout << '\n' << "Algorithm: " << argv[2] << " | " << argv[3];
     cout << '\n' << "Input size: " << data_size;
     cout << '\n' << "Input order: " << data_type;
@@ -90,27 +67,23 @@ void commandline5 (int size[], int argc, char* argv[]){
     long long int count_compares1 = 0, count_compares2 = 0;
             
     //Algorithm1
-    tempArray (a, array1, data_size);
+    createTempArray (a, array1, data_size);
     inputFile(data_type, a, data_size, "input.txt");
 
     clock_t start1 = clock();
 
-    if (strcmp(argv[2], "merge-sort") == 0) mergeSort(array1, 0, data_size - 1, count_compares1);
-    if (strcmp(argv[2], "bubble-sort") == 0) bubbleSort (array1, data_size, count_compares1);
-    if (strcmp(argv[2], "shaker-sort") == 0) shakerSort(array1, data_size, count_compares1);
+    activateSortCount(argv[2],array1,data_size,count_compares1);
             
     clock_t end1 = clock();
 
     delete [] array1;
 
     // //Algorithm2
-    tempArray (a, array2, data_size);
+    createTempArray (a, array2, data_size);
 
     clock_t start2 = clock();
 
-    if (strcmp(argv[3], "merge-sort") == 0) mergeSort(array2, 0, data_size - 1, count_compares2);
-    if (strcmp(argv[3], "bubble-sort") == 0) bubbleSort (array2, data_size, count_compares2);
-    if (strcmp(argv[3], "shaker-sort") == 0) shakerSort(array2, data_size, count_compares2);
+    activateSortCount(argv[3],a,data_size,count_compares2);
            
     clock_t end2 = clock();
 

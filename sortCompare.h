@@ -1,8 +1,6 @@
 #include <iostream>
-#include <vector>
 
-using namespace std;
-
+void activateSortCount(char *, int *a, int ,long long int &);
 void selectionSortCount(int, int, long long int &);
 void insertionSortCount(int *, int, long long int &);
 void bubbleSortCount (int *, int , long long int &);

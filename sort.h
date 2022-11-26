@@ -1,5 +1,6 @@
 #include <iostream>
 
+void activateSort(char *, int *, int); 
 void selectionSort(int *, int);
 void insertionSort(int *, int);
 void bubbleSort(int *, int);

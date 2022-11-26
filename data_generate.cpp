@@ -10,7 +10,7 @@ void HoanVi(T &a, T &b)
 
 //-------------------------------------------------
 
-// Hàm phát sinh mảng dữ liệu ngẫu nhiên
+// Generate random data
 void GenerateRandomData(int a[], int n)
 {
 	srand((unsigned int)time(NULL));
@@ -21,7 +21,7 @@ void GenerateRandomData(int a[], int n)
 	}
 }
 
-// Hàm phát sinh mảng dữ liệu có thứ tự tăng dần
+// Generate Ascending Data
 void GenerateSortedData(int a[], int n)
 {
 	for (int i = 0; i < n; i++)
