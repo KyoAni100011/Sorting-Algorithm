@@ -3,10 +3,9 @@
 #include <string>
 #include <stdlib.h>
 #include <time.h>
-#include "commandline5.cpp"
+#include "commandline5.h"
+
 using namespace std;
-
-
 
 int main(int argc, char *argv[])
 {
@@ -56,6 +55,8 @@ int main(int argc, char *argv[])
     {
         cout << "Wrong command line";
     }
+
+    return 0;
 }
 
 
