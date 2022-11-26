@@ -6,8 +6,10 @@
 #include <time.h>
 #include "sort.h"
 #include "sortCompare.h"
+#include "data_generate.h"
+#include "sortCompare.h"
 
 using namespace std;
 
-void commandline5 (int argc, char* argv[]);
-void commandline1 (int argc, char* argv[]);
+void commandline5(int argc, char *argv[]);
+void commandline1(int argc, char *argv[]);

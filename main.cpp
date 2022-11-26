@@ -1,24 +1,14 @@
-#include <iostream>
-#include <string.h>
-#include <string>
-#include <stdlib.h>
-#include <time.h>
 #include "commandline5.h"
-
-using namespace std;
 
 int main(int argc, char *argv[])
 {
-    //data Size
-    int size[6] = {10000, 30000, 50000, 100000, 300000, 500000};
-
-    if(argc == 5)
+    if (argc == 5)
     {
-        if(!strcmp(argv[1],"-a"))
+        if (!strcmp(argv[1], "-a"))
         {
-            if(atoi(argv[3]) == 0)
+            if (atoi(argv[3]) == 0)
             {
-                if(strstr(argv[3],".txt"))
+                if (strstr(argv[3], ".txt"))
                 {
                     cout << "Run cmd 1";
                     commandline1(argc, argv);
@@ -39,15 +29,15 @@ int main(int argc, char *argv[])
             cout << "Run cmd 4";
         }
     }
-    else if(argc == 6)
+    else if (argc == 6)
     {
-        if(!strcmp(argv[1],"-a"))
+        if (!strcmp(argv[1], "-a"))
         {
             cout << "Run cmd 2";
         }
         else
-        {   
-            //cmd line 5
+        {
+            // cmd line 5
             cout << "Run cmd 5";
             commandline5(argc, argv);
         }
@@ -59,6 +49,3 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-
-
-
