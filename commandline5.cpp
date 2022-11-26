@@ -67,13 +67,15 @@ void commandline5 (int argc, char* argv[]){
     long long int count_compares1 = 0, count_compares2 = 0;
             
     //Algorithm1
+    cout << "FUCK1" << endl;
     createTempArray (a, array1, data_size);
+    cout << "FUCK2" << endl;
     inputFile(data_type, a, data_size, "input.txt");
 
     clock_t start1 = clock();
 
     activateSortCount(argv[2],array1,data_size,count_compares1);
-            
+    cout << "FUCK3";
     clock_t end1 = clock();
 
     delete [] array1;

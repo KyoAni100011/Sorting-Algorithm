@@ -1,5 +1,6 @@
 #include <iostream>
 
+void testAllSort(int *b, int *a, int n);
 void activateSort(char *, int *, int); 
 void selectionSort(int *, int);
 void insertionSort(int *, int);

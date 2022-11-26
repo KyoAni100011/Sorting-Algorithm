@@ -3,9 +3,89 @@
 #include <string.h>
 #include <vector>
 #include <cmath>
+
+#include <stdlib.h>
+#include <time.h>
+
 #include "sort.h"
 
 using namespace std;
+
+void testAllSort(int *b, int *a, int n)
+{
+    b = new int[n];
+    clock_t start1;
+    clock_t end1;
+
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // clock_t start1 = clock();
+    // selectionSort(b,n);
+    // clock_t end1 = clock();
+    // cout << "Selection Sort: " << double(end1-start1) << "ms\n";
+
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // insertionSort(b,n);
+    // end1 = clock();
+    // cout << "Insertion Sort: " << double(end1-start1) << "ms\n";
+
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // bubbleSort(b,n);
+    // end1 = clock();
+    // cout << "Bubble Sort: " << double(end1-start1) << "ms\n";
+
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // shakerSort(b,n);
+    // end1 = clock();
+    // cout << "Shaker Sort: " << double(end1-start1) << "ms\n";
+    
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // shellSort(b,n);
+    // end1 = clock();
+    // cout << "Shell Sort: " << double(end1-start1) << "ms\n";
+
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // heapSort(b,n);
+    // end1 = clock();
+    // cout << "Heap Sort: " << double(end1-start1) << "ms\n";
+
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // mergeSort(b,0,n - 1);
+    // end1 = clock();
+    // cout << "Merge Sort: " << double(end1-start1) << "ms\n";
+
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // quickSort(b,0,n - 1);
+    // end1 = clock();
+    // cout << "Quick Sort: " << double(end1-start1) << "ms\n";
+
+
+    // Error
+    for(int i = 0; i < n; i++) b[i] = a[i];
+    start1 = clock();
+    countingSort(b,n);
+    end1 = clock();
+    cout << "Counting Sort: " << double(end1-start1) << "ms\n";
+    for(int i = 0; i < n; i++) cout << b[i] << " ";
+
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // radixSort(b,n);
+    // end1 = clock();
+    // cout << "Radix Sort: " << double(end1-start1) << "ms\n";
+
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // flashSort(b,n);
+    // end1 = clock();
+    // cout << "Flash Sort: " << double(end1-start1) << "ms\n";
+}
 
 void activateSort(char *sort_type, int *a, int n)
 {
@@ -288,7 +368,7 @@ void countingSort(int *a, int n)
 
 void radixSort(int *a, int n)
 {
-	/*int exp = 1;
+	int exp = 1;
     
     for (int it = 0; it < 9; it++) 
 	{
@@ -310,7 +390,7 @@ void radixSort(int *a, int n)
         }
         
         exp *= 10;
-    }*/
+    }
 }
 
 void flashSort(int *a, int n)

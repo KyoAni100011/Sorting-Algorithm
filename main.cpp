@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
                 if(strstr(argv[3],".txt"))
                 {
                     cout << "Run cmd 1";
+                    commandline1(argc, argv);
                 }
                 else
                 {
