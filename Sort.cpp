@@ -107,7 +107,7 @@ void shellSort(int *a, int n)
     }
 }
 
-void heapify(int a[], int n, int i)
+void heapify(int *a, int n, int i)
 {
 	int left = 2*i + 1, right = 2*i + 2, largest = i;
 	if(left < n && a[left] > a[largest])
@@ -125,7 +125,7 @@ void heapify(int a[], int n, int i)
 	}
 }
 
-void heapSort(int a[], int n)
+void heapSort(int *a, int n)
 {
 	for(int i = n/2 - 1; i >= 0; i--)
 	{

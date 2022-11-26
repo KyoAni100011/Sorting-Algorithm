@@ -3,17 +3,17 @@
 
 using namespace std;
 
-void selectionSort(int *a, int n, long long int &);
-void insertionSort(int *a, int n, long long int &);
-void bubbleSort (int *, int , long long int &);
-void shakerSort (int *, int , long long int &);
-void shellSort(int *a, int n, long long int &);
-void heapify(int *a, int n, long long int &);
-void heapSort(int *a, int n, long long int &);
+void selectionSortCount(int, int, long long int &);
+void insertionSortCount(int *, int, long long int &);
+void bubbleSortCount (int *, int , long long int &);
+void shakerSortCount (int *, int , long long int &);
+void shellSortCount(int *, int, long long int &);
+void heapify(int *, int, long long int &);
+void heapSortCount(int *, int, long long int &);
 void merge (int*, int, int, int, long long int &);
-void mergeSort (int*, int, int, long long int &);
-int partition(int *a, int left, int right, long long int &);
-void quickSort(int *a, int left, int right, long long int &);
-void countingSort(int *a, int n, long long int &);
-void radixSort(int *a, int n, long long int &);
-void flashSort(int *a, int n, long long int &);
+void mergeSortCount (int*, int, int, long long int &);
+int partition(int *, int, int, long long int &);
+void quickSortCount(int *, int, int, long long int &);
+void countingSortCount(int *, int, long long int &);
+void radixSortCount(int *, int, long long int &);
+void flashSortCount(int *, int, long long int &);
