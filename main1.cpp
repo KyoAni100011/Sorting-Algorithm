@@ -52,7 +52,7 @@ int main (int argc, char *argv[]){
         GenerateData (a, data_size, 0);
         data_type = "Randomized Data ";
     }
-    else if (strcmp(argv[5], " -sorted") == 0) {
+    else if (strcmp(argv[5], "-sorted") == 0) {
         GenerateData (a, data_size, 1);
         data_type = "Sorted Data ";
     }
