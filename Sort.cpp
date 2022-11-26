@@ -364,6 +364,10 @@ void countingSort(int *a, int n)
         d[c[a[i]] - b[a[i]]] = a[i];
         b[a[i]] -- ;
     }
+    for(int i = 0; i < n; i++){
+        a[i] = d[i];
+    }
+
 }
 
 void radixSort(int *a, int n)
