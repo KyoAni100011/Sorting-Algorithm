@@ -13,9 +13,9 @@ void createFile(string file_name)
     srand((unsigned int)time(NULL));
 
     ofstream file(file_name, ios::out);
-    file << "10\n";
+    file << "10000\n";
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 10000; i++)
 	{
 		file << rand()%10 << " ";
 	}
@@ -40,6 +40,7 @@ void readFile(int *&a, int &n, string file_name)
 
 void createTempArray(int *&b, int *a, int n)
 {
+    b = new int[n];
     for(int i = 0; i < n; i++)
     {
         b[i] = a[i];
@@ -54,37 +55,32 @@ void commandline1 (int argc, char* argv[])
     createFile(file_name);
     readFile(a,n,file_name);
 
-    testAllSort(b,a,n);
+    cout << "ALGORITHM MODE\n";
+    cout << "Algorithm: " << argv[2] << "\n";
+    cout << "Input file: " << argv[3] << "\n";
+    cout << "Input size: " << n << "\n";
+    cout << "-----------------------------------------\n";
 
-    // cout << "ALGORITHM MODE\n";
-    // cout << "Algorithm: " << argv[2] << "\n";
-    // cout << "Input file: " << argv[3] << "\n";
-    // cout << "Input size: " << n << "\n";
-    // cout << "-----------------------------------------\n";
-
-    // if(!strcmp(argv[4],"-time"))
-    // {
-    //     cout << "TIME\n";
-    //     clock_t start = clock();
-    //     activateSort(argv[2],a,n);
-    //     clock_t end = clock();
-    //     cout << "Running time: " << double(end - start) << "ms\n";
-    // }
-    // else if(!strcmp(argv[4],"-comp"))
-    // {
-    //     cout << "COMP\n";
-    //     activateSortCount(argv[2],a,n,comparision);
-    //     cout << "Comparision: " << comparision;
-    // }
-    // else
-    // {
-    //     cout << "BOTH\n";
-    //     createTempArray(b,a,n);
-    //     clock_t start = clock();
-    //     activateSort(argv[2],a,n);
-    //     clock_t end = clock();
-    //     activateSortCount(argv[2],b,n,comparision);
-    //     cout << "Running time: " << double(end - start) << "ms\n";
-    //     cout << "Comparision: " << comparision;
-    // }
+    if(!strcmp(argv[4],"-time"))
+    {
+        clock_t start = clock();
+        activateSort(argv[2],a,n);
+        clock_t end = clock();
+        cout << "Running time: " << double(end - start) << "ms\n";
+    }
+    else if(!strcmp(argv[4],"-comp"))
+    {
+        activateSortCount(argv[2],a,n,comparision);
+        cout << "Comparision: " << comparision;
+    }
+    else
+    {
+        createTempArray(b,a,n);
+        clock_t start = clock();
+        activateSort(argv[2],a,n);
+        clock_t end = clock();
+        activateSortCount(argv[2],b,n,comparision);
+        cout << "Running time: " << double(end - start) << "ms\n";
+        cout << "Comparision: " << comparision;
+    }
 }
