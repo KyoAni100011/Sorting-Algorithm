@@ -1,11 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <string.h>
-#include <vector>
-#include <cmath>
 #include "sortCompare.h"
-
-using namespace std;
 
 void activateSortCount(char *sort_type, int *a, int n, long long int &count_compares)
 {

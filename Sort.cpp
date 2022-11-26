@@ -1,15 +1,5 @@
-#include <iostream>
-#include <algorithm>
-#include <string.h>
-#include <vector>
-#include <cmath>
-
-#include <stdlib.h>
-#include <time.h>
-
 #include "sort.h"
 
-using namespace std;
 
 void testAllSort(int *b, int *a, int n)
 {
@@ -399,9 +389,9 @@ void radixSort(int *a, int n)
 
 void flashSort(int *a, int n)
 {
-    int m, minVal, max;
+    int m, minVal, max, nmove, j, k;
     int *l;
-    double c1;
+    double c1, flash;
 
     m = int(0.45 * n);   
   
@@ -435,10 +425,10 @@ void flashSort(int *a, int n)
 
     swap(a[max], a[0]);
 
-    int nmove = 0;
-	int j = 0;
-	int k = m - 1;
-    float flash;
+    nmove = 0;
+	j = 0;
+	k = m - 1;
+    flash;
 
     while (nmove < n)
 	{

@@ -1,4 +1,12 @@
 #include <iostream>
+#include <algorithm>
+#include <string.h>
+#include <vector>
+#include <cmath>
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
 
 void testAllSort(int *b, int *a, int n);
 void activateSort(char *, int *, int); 
