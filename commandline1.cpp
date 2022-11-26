@@ -38,6 +38,14 @@ void readFile(int *&a, int &n, string file_name)
     }
 }
 
+void write(int *a, int n, string file_name)
+{
+    ofstream file(file_name, ios::out);
+    for(int i = 0; i < n; i++)
+        file << a[i] << " ";
+    file.close();
+}
+
 void createTempArray(int *&b, int *a, int n)
 {
     b = new int[n];
@@ -83,4 +91,6 @@ void commandline1 (int argc, char* argv[])
         cout << "Running time: " << double(end - start) << "ms\n";
         cout << "Comparision: " << comparision;
     }
+
+    write(a,n,"output.txt");
 }
