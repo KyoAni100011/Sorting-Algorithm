@@ -50,6 +50,44 @@ void inputFile(string data_type, int *a, int size, string file_name)
     f.close();
 }
 
+void createFile(string file_name)
+{
+    srand((unsigned int)time(NULL));
+
+    ofstream file(file_name, ios::out);
+    file << "10000\n";
+
+    for (int i = 0; i < 10000; i++)
+    {
+        file << rand() % 10 << " ";
+    }
+
+    file.close();
+}
+
+void readFile(int *&a, int &n, string file_name)
+{
+    ifstream file(file_name, ios::in);
+    int num, i = 0;
+    file >> n;
+
+    a = new int[n];
+
+    while (file >> num)
+    {
+        a[i] = num;
+        i++;
+    }
+}
+
+void write(int *a, int n, string file_name)
+{
+    ofstream file(file_name, ios::out);
+    for(int i = 0; i < n; i++)
+        file << a[i] << " ";
+    file.close();
+}
+
 void commandline5(int argc, char *argv[])
 {
     int data_size = atoi(argv[4]);
@@ -153,36 +191,6 @@ void commandline4(int argc, char *argv[])
     fileIn.close();
 }
 
-void createFile(string file_name)
-{
-    srand((unsigned int)time(NULL));
-
-    ofstream file(file_name, ios::out);
-    file << "10000\n";
-
-    for (int i = 0; i < 10000; i++)
-    {
-        file << rand() % 10 << " ";
-    }
-
-    file.close();
-}
-
-void readFile(int *&a, int &n, string file_name)
-{
-    ifstream file(file_name, ios::in);
-    int num, i = 0;
-    file >> n;
-
-    a = new int[n];
-
-    while (file >> num)
-    {
-        a[i] = num;
-        i++;
-    }
-}
-
 void commandline1(int argc, char *argv[])
 {
     int *a = NULL, *b = NULL, n;
@@ -190,6 +198,8 @@ void commandline1(int argc, char *argv[])
     string file_name = "input.txt";
     createFile(file_name);
     readFile(a, n, file_name);
+
+    b = new int[n];
 
     cout << "ALGORITHM MODE\n";
     cout << "Algorithm: " << argv[2] << "\n";
