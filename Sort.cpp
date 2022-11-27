@@ -395,7 +395,7 @@ void RadixSort(int a[], int n)
     int j = 0;
     int c = countDigitNumMax(a,n) ;
     int f  = 1;
-    for(int d = 0; d <= c; d++)
+    for(int d = 0; d < c; d++)
     {
         int b[n][n] ={0};
         for(int i = 0; i < n; i++)

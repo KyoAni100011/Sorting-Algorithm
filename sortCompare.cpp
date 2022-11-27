@@ -328,7 +328,7 @@ void RadixSortCount(int a[], int n, long long int &count_compares)
     int j = 0;
     int c = countDigitNumMax(a,n, count_compares);
     int f  = 1;
-    for(int d = 0; d <= c && ++count_compares; d++)
+    for(int d = 0; d < c && ++count_compares; d++)
     {
         int b[n][n] ={0};
         for(int i = 0; i < n && ++count_compares; i++)
