@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
             else
             {
                 cout << "Run cmd 3";
+                commandline3(argc, argv);
             }
         }
         else
@@ -35,6 +36,7 @@ int main(int argc, char *argv[])
         if (!strcmp(argv[1], "-a"))
         {
             cout << "Run cmd 2";
+            commandline2(argc, argv);
         }
         else
         {
