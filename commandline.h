@@ -7,10 +7,17 @@
 #include "sort.h"
 #include "sortCompare.h"
 #include "data_generate.h"
-#include "sortCompare.h"
 
 using namespace std;
 
+string dataOrder(int *, int, string);
+void createTempArray(int *, int *, int);
+void createFile(string);
+void readFile(int *&, int &, string);
+void writeFile(int *, int, string);
+
 void commandline1(int argc, char *argv[]);
+void commandline2(int argc, char *argv[]);
+void commandline3(int argc, char *argv[]);
 void commandline4(int argc, char *argv[]);
 void commandline5(int argc, char *argv[]);
