@@ -130,20 +130,17 @@ void commandline1(int argc, char *argv[])
 
 void commandline2(int argc, char *argv[])
 {
-    int *a = NULL, *b = NULL, data_size;
+    int  data_size = atoi(argv[3]);
+    int *a = new int[data_size], *b = new int[data_size];
     long long int comparision = 0;
-    data_size = atoi(argv[3]);
+    string data_type = dataOrder(a,data_size, argv[4]);
 
-    if (data_size > 1000000)
-    {
-        cout << "ERROR!";
-        exit(1);
-    }
+    writeFile(data_type,a,data_size,"input.txt");
 
     cout << "ALGORITHM MODE\n";
     cout << "Algorithm: " << argv[2] << "\n";
-    cout << "Input size: " << argv[3] << "\n";
-    cout << "Input order: " << argv[4] << "\n";
+    cout << "Input size: " << data_size << "\n";
+    cout << "Input order: " << data_type << "\n";
     cout << "-----------------------------------------\n";
 
     if (!strcmp(argv[5], "-time"))
@@ -151,30 +148,22 @@ void commandline2(int argc, char *argv[])
         clock_t start = clock();
         activateSort(argv[2], a, data_size);
         clock_t end = clock();
-        cout << "Running time: " << double(end - start) << "\n";
-        writeFile(a, data_size, "output.txt");
+        cout << "Running time: " << double(end - start) << "ms\n";
     }
-    else if (!strcmp(argv[4], "-comp"))
+    else if (!strcmp(argv[5], "-comp"))
     {
         activateSortCount(argv[2], a, data_size, comparision);
         cout << "Comparision: " << comparision;
-        writeFile(a, data_size, "output.txt");
     }
-    else if (!strcmp(argv[4], "-both"))
+    else if (!strcmp(argv[5], "-both"))
     {
         createTempArray(b, a, data_size);
         clock_t start = clock();
         activateSort(argv[2], a, data_size);
         clock_t end = clock();
         activateSortCount(argv[2], b, data_size, comparision);
-        cout << "Running time: " << double(end - start) << "\n";
+        cout << "Running time: " << double(end - start) << "ms\n";
         cout << "Comparision: " << comparision;
-        writeFile(a, data_size, "output.txt");
-    }
-    else
-    {
-        cout << "ERROR!";
-        exit(1);
     }
 
     delete[] a;
@@ -184,12 +173,6 @@ void commandline2(int argc, char *argv[])
 void commandline3(int argc, char *argv[])
 {
     int data_size = atoi(argv[3]);
-    if (data_size > 1000000)
-    {
-        cout << "ERROR!";
-        exit(1);
-    }
-
     int *array1 = new int[data_size];
     int *array2 = new int[data_size];
     int *array3 = new int[data_size];
@@ -204,14 +187,10 @@ void commandline3(int argc, char *argv[])
     string data_type4 = dataOrder(array4, data_size, "-rev");
     writeFile(array4, data_size, "input_4.txt");
 
-    cout << '\n'
-         << "Algorithm: " << argv[2] << " | " << argv[3];
-    cout << '\n'
-         << "Input size: " << data_size;
-    cout << '\n';
-
-    cout << "Input order: " << data_type1;
-    cout << "\n--------------------------------\n";
+    cout <<  "\nAlgorithm: " << argv[2] << " | " << argv[3] << "\n";
+    cout << "Input size: " << data_size << "\n";
+    cout << "Input order: Randomize\n";
+    cout << "---------------------------------------------\n";
 
     if (!strcmp(argv[4], "-comp"))
     {
@@ -319,12 +298,7 @@ void commandline3(int argc, char *argv[])
 
         delete[] temp;
     }
-    else
-    {
-        cout << "ERROR!";
-        exit(1);
-    }
-
+    
     delete[] array1;
     delete[] array2;
     delete[] array3;
