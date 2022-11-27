@@ -1,4 +1,4 @@
-#include "commandline5.h"
+#include "commandline.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
         else
         {
             cout << "Run cmd 4";
+            commandline4(argc, argv);
         }
     }
     else if (argc == 6)

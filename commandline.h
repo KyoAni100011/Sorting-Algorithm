@@ -11,5 +11,6 @@
 
 using namespace std;
 
-void commandline5(int argc, char *argv[]);
 void commandline1(int argc, char *argv[]);
+void commandline4(int argc, char *argv[]);
+void commandline5(int argc, char *argv[]);

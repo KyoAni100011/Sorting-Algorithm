@@ -1,4 +1,7 @@
 #include "sortCompare.h"
+#include <vector>
+
+using namespace std;
 
 void activateSortCount(char *sort_type, int *a, int n, long long int &count_compares)
 {
@@ -301,28 +304,28 @@ void countingSortCount(int *a, int n, long long int &count_compares)
 
 void radixSortCount(int *a, int n, long long int &count_compares)
 {
-    int exp = 1;
+    // int exp = 1;
 
-    for (int it = 0; it < 9 && ++count_compares; it++)
-    {
-        vector<int> buckets[10];
+    // for (int it = 0; it < 9 && ++count_compares; it++)
+    // {
+    //     vector<int> buckets[10];
 
-        for (int i = 0; i < n && ++count_compares; i++)
-        {
-            buckets[(a[i] / exp) % 10].push_back(a[i]);
-        }
+    //     for (int i = 0; i < n && ++count_compares; i++)
+    //     {
+    //         buckets[(a[i] / exp) % 10].push_back(a[i]);
+    //     }
 
-        n = 0;
-        for (vector<int> bucket : buckets && ++count_compares)
-        {
-            for (int v : bucket && ++count_compares)
-            {
-                a[n++] = v;
-            }
-        }
+    //     n = 0;
+    //     for (vector<int> bucket : buckets && ++count_compares)
+    //     {
+    //         for (int v : bucket && ++count_compares)
+    //         {
+    //             a[n++] = v;
+    //         }
+    //     }
 
-        exp *= 10;
-    }
+    //     exp *= 10;
+    // }
 }
 
 void flashSortCount(int a[], int n, long long int &count_compares)
