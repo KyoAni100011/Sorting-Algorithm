@@ -302,7 +302,7 @@ void countingSortCount(int *a, int n, long long int &count_compares)
     }
 }
 
-int countDigitNumMax(int a[], int n, long long int &count_compares)
+int countDigitNumMax(int *a, int n, long long int &count_compares)
 {
     int max = a[0];
     for(int i = 1; i < n && ++count_compares; i++)
@@ -322,7 +322,7 @@ int countDigitNumMax(int a[], int n, long long int &count_compares)
 }
 
 
-void RadixSortCount(int a[], int n, long long int &count_compares)
+void radixSortCount(int *a, int n, long long int &count_compares)
 {
     count_compares = 0;
     int j = 0;
