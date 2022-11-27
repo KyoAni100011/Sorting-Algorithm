@@ -302,30 +302,54 @@ void countingSortCount(int *a, int n, long long int &count_compares)
     }
 }
 
-void radixSortCount(int *a, int n, long long int &count_compares)
+int countDigitNumMax(int a[], int n, long long int &count_compares)
 {
-    // int exp = 1;
+    int max = a[0];
+    for(int i = 1; i < n && ++count_compares; i++)
+    {
+        if(++count_compares && a[i] > max)
+        {
+            max = a[i];
+        }
+    }
+    int count = 0;
+    while(++count_compares && max > 1)
+    {
+        max = max / 10;
+        count ++;
+    }
+    return count; 
+}
 
-    // for (int it = 0; it < 9 && ++count_compares; it++)
-    // {
-    //     vector<int> buckets[10];
 
-    //     for (int i = 0; i < n && ++count_compares; i++)
-    //     {
-    //         buckets[(a[i] / exp) % 10].push_back(a[i]);
-    //     }
+void RadixSortCount(int a[], int n, long long int &count_compares)
+{
+    count_compares = 0;
+    int j = 0;
+    int c = countDigitNumMax(a,n, count_compares);
+    int f  = 1;
+    for(int d = 0; d <= c && ++count_compares; d++)
+    {
+        int b[n][n] ={0};
+        for(int i = 0; i < n && ++count_compares; i++)
+        {
+            int k = (a[i] / f) % 10;
+            b[k][0] ++;
+            b[k][b[k][0]] = a[i];
+        }
+        int k = 0;
+        for(int i = 0; i < n && ++count_compares; i++)
+        {
+            if(++count_compares && b[i][0] != 0){
+                for(int j = 1; j <= b[i][0] && ++count_compares; j++){
+                    a[k] = b[i][j];
+                    k++;
+                }
+            }
+        }
+        f *= 10;
+    }
 
-    //     n = 0;
-    //     for (vector<int> bucket : buckets && ++count_compares)
-    //     {
-    //         for (int v : bucket && ++count_compares)
-    //         {
-    //             a[n++] = v;
-    //         }
-    //     }
-
-    //     exp *= 10;
-    // }
 }
 
 void flashSortCount(int a[], int n, long long int &count_compares)
