@@ -1,5 +1,5 @@
 #include "data_generate.h"
-#include <algorithm>
+
 
 using namespace std;
 

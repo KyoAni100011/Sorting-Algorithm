@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <algorithm>
 #include "sort.h"
 #include "sortCompare.h"
 #include "data_generate.h"

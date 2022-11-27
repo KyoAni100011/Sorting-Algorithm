@@ -190,10 +190,8 @@ void commandline3(int argc, char *argv[])
     string data_type4 = dataOrder(array4, data_size, "-rev");
     writeFile(array4, data_size, "input_4.txt");
 
-    cout <<  "\nAlgorithm: " << argv[2] << " | " << argv[3] << "\n";
-    cout << "Input size: " << data_size << "\n";
-    cout << "Input order: Randomize\n";
-    cout << "---------------------------------------------\n";
+    cout <<  "\nAlgorithm: " << argv[2] << "\n";
+    cout << "Input size: " << data_size << "\n\n";
 
     if (!strcmp(argv[4], "-comp"))
     {
