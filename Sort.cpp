@@ -3,6 +3,7 @@
 #include <string.h>
 #include <vector>
 #include <cmath>
+#include <bits/stdc++.h>
 
 #include <stdlib.h>
 #include <time.h>
@@ -379,7 +380,7 @@ int countDigitNumMax(int *a, int n)
         }
     }
     int count = 0;
-    while( max > 1)
+    while( max > 0)
     {
         max = max / 10;
         count ++;
@@ -388,26 +389,28 @@ int countDigitNumMax(int *a, int n)
 }
 
 
-void radixSort(int *a, int n)
+void RadixSort(int a[], int n)
 {
     int j = 0;
-    int c = countDigitNumMax(a,n) ;
-    int f  = 1;
-    for(int d = 0; d < c; d++)
+    int c = countDigitNumMax(a, n);
+    int f = 1;
+    for (int d = 0; d < c; d++)
     {
-        int b[n][n] ={0};
-        for(int i = 0; i < n; i++)
+        int b[10][n + 1] ;
+        memset(b, 0, sizeof(b));       
+        for (int i = 0; i < n; i++)
         {
             int k = (a[i] / f) % 10;
-            b[k][0] ++;
+            b[k][0]++;
             b[k][b[k][0]] = a[i];
         }
         int k = 0;
-        for(int i = 0; i< n; i++)
+        for (int i = 0; i < 10; i++)
         {
-            if(b[i][0] != 0)
+            if (b[i][0] != 0)
             {
-                for(int j = 1; j <= b[i][0]; j++){
+                for (int j = 1; j <= b[i][0]; j++)
+                {
                     a[k] = b[i][j];
                     k++;
                 }
@@ -415,7 +418,7 @@ void radixSort(int *a, int n)
         }
         f *= 10;
     }
-
+   
 }
 
 void flashSort(int *a, int n)

@@ -1,5 +1,6 @@
 #include "sortCompare.h"
 #include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -313,7 +314,7 @@ int countDigitNumMax(int *a, int n, long long int &count_compares)
         }
     }
     int count = 0;
-    while(++count_compares && max > 1)
+    while(++count_compares && max > 0)
     {
         max = max / 10;
         count ++;
@@ -330,7 +331,8 @@ void radixSortCount(int *a, int n, long long int &count_compares)
     int f  = 1;
     for(int d = 0; d < c && ++count_compares; d++)
     {
-        int b[n][n] ={0};
+        int b[10][n + 1] ;
+        memset(b, 0, sizeof(b));        
         for(int i = 0; i < n && ++count_compares; i++)
         {
             int k = (a[i] / f) % 10;
@@ -340,8 +342,10 @@ void radixSortCount(int *a, int n, long long int &count_compares)
         int k = 0;
         for(int i = 0; i < n && ++count_compares; i++)
         {
-            if(++count_compares && b[i][0] != 0){
-                for(int j = 1; j <= b[i][0] && ++count_compares; j++){
+            if(++count_compares && b[i][0] != 0)
+            {
+                for(int j = 1; j <= b[i][0] && ++count_compares; j++)
+                {
                     a[k] = b[i][j];
                     k++;
                 }
