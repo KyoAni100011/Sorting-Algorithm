@@ -65,13 +65,11 @@ void testAllSort(int *b, int *a, int n)
     // end1 = clock();
     // cout << "Quick Sort: " << double(end1-start1) << "ms\n";
 
-
-    // Error
-    for(int i = 0; i < n; i++) b[i] = a[i];
-    start1 = clock();
-    countingSort(b,n);
-    end1 = clock();
-    cout << "Counting Sort: " << double(end1-start1) << "ms\n";
+    // for(int i = 0; i < n; i++) b[i] = a[i];
+    // start1 = clock();
+    // countingSort(b,n);
+    // end1 = clock();
+    // cout << "Counting Sort: " << double(end1-start1) << "ms\n";
     for(int i = 0; i < n; i++) cout << b[i] << " ";
 
     // for(int i = 0; i < n; i++) b[i] = a[i];
@@ -370,7 +368,7 @@ void countingSort(int *a, int n)
 
 }
 
-int countDigitNumMax(int a[], int n)
+int countDigitNumMax(int *a, int n)
 {
     int max = a[0];
     for(int i = 1; i < n; i++)
@@ -390,7 +388,7 @@ int countDigitNumMax(int a[], int n)
 }
 
 
-void RadixSort(int a[], int n)
+void radixSort(int *a, int n)
 {
     int j = 0;
     int c = countDigitNumMax(a,n) ;

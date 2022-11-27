@@ -17,5 +17,6 @@ void mergeSortCount(int *, int, int, long long int &);
 int partitionCount(int *, int, int, long long int &);
 void quickSortCount(int *, int, int, long long int &);
 void countingSortCount(int *, int, long long int &);
+int countDigitNumMax(int *, int, long long int &);
 void radixSortCount(int *, int, long long int &);
 void flashSortCount(int *, int, long long int &);
