@@ -1,20 +1,11 @@
 #include <iostream>
 #include <algorithm>
-<<<<<<< HEAD
-=======
-#include <cstring>
->>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
 #include <string.h>
 #include <vector>
 #include <cmath>
 #include <cstring>
 using namespace std;
 
-<<<<<<< HEAD
-=======
-using namespace std;
-
->>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
 void activateSortCount(char *, int *, int, long long int &);
 void selectionSortCount(int *, int, long long int &);
 void insertionSortCount(int *, int, long long int &);
