@@ -5,6 +5,7 @@
 #include <cmath>
 #include <stdlib.h>
 #include <time.h>
+#include <cstring>
 using namespace std;
 
 void testAllSort(int *b, int *a, int n);

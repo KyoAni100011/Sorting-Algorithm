@@ -3,6 +3,7 @@
 #include <string.h>
 #include <vector>
 #include <cmath>
+#include <cstring>
 using namespace std;
 
 void activateSortCount(char *, int *, int, long long int &);
