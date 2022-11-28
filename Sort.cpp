@@ -377,7 +377,7 @@ int countDigitNumMax(int *a, int n)
 }
 
 
-void RadixSort(int *a, int n)
+void radixSort(int *a, int n)
 {
     int j = 0;
     int c = countDigitNumMax(a, n);
