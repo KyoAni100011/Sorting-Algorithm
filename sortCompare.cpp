@@ -225,7 +225,6 @@ void heapSortCount(int *a, int n, long long int &count_compares)
 
 int partitionCount(int *a, int left, int right, long long int &count_compares)
 {
-<<<<<<< HEAD
     // int pivot = a[left];
     // int i = left - 1;
     // int j = right + 1;
@@ -247,29 +246,6 @@ int partitionCount(int *a, int left, int right, long long int &count_compares)
     //     else
     //         return j;
     // }
-=======
-    int pivot = a[left];
-    int i = left - 1;
-    int j = right + 1;
-
-    while (++count_compares && 1)
-    {
-        do
-        {
-            i++;
-        } while (++count_compares && a[i] < pivot);
-
-        do
-        {
-            j--;
-        } while (++count_compares && a[j] > pivot);
-
-        if (++count_compares && (i < j))
-            swap(a[i], a[j]);
-        else
-            return j;
-    }
->>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
 
     return 0;
 }
@@ -301,13 +277,9 @@ void countingSortCount(int *a, int n, long long int &count_compares)
     }
 
     max = max + 1;
-<<<<<<< HEAD
     int b[max]; for (int i = 1; i < max; i++) b[i] = 0;
 
     int c[max] , d[n];
-=======
-    int b[max] = {0}, c[max], d[n];
->>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
 
     for (int i = 0; i < n && ++count_compares; i++)
     {
@@ -401,10 +373,7 @@ void radixSortCount(int *a, int n, long long int &count_compares)
     }
     
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
 void flashSortCount(int a[], int n, long long int &count_compares)
 {
     int m, minVal, max;
@@ -412,11 +381,7 @@ void flashSortCount(int a[], int n, long long int &count_compares)
     double c1;
 
     m = int(0.45 * n);
-<<<<<<< HEAD
     l = new int[m]; for (int i = 1; i < m; i++) l[i] = 0;
-=======
-    l = new int[m]{};
->>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
     minVal = a[0];
     max = 0;
 
