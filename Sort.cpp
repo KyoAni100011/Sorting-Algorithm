@@ -2,9 +2,9 @@
 
 void testAllSort(int *b, int *a, int n)
 {
-    b = new int[n];
-    clock_t start1;
-    clock_t end1;
+    //b = new int[n];
+    //clock_t start1;
+    //clock_t end1;
 
     // for(int i = 0; i < n; i++) b[i] = a[i];
     // clock_t start1 = clock();
@@ -59,7 +59,7 @@ void testAllSort(int *b, int *a, int n)
     // countingSort(b,n);
     // end1 = clock();
     // cout << "Counting Sort: " << double(end1-start1) << "ms\n";
-    for(int i = 0; i < n; i++) cout << b[i] << " ";
+    //for(int i = 0; i < n; i++) cout << b[i] << " ";
 
     // for(int i = 0; i < n; i++) b[i] = a[i];
     // start1 = clock();
@@ -85,7 +85,7 @@ void activateSort(char *sort_type, int *a, int n)
     else if (!strcmp(sort_type, "merge-sort")) mergeSort(a,0,n - 1);
     else if (!strcmp(sort_type, "quick-sort")) quickSort(a,0,n - 1);
     else if (!strcmp(sort_type, "counting-sort")) countingSort(a,n);
-    //else if (!strcmp(sort_type, "radix-sort")) radixSort(a,n);
+    else if (!strcmp(sort_type, "radix-sort")) radixSort(a,n);
     else if (!strcmp(sort_type, "flash-sort")) flashSort(a,n);
 }
 
@@ -377,37 +377,37 @@ int countDigitNumMax(int *a, int n)
 }
 
 
-// void RadixSort(int *a, int n)
-// {
-//     int j = 0;
-//     int c = countDigitNumMax(a, n);
-//     int f = 1;
-//     for (int d = 0; d < c; d++)
-//     {
-//         int b[10][n + 1] ;
-//         memset(b, 0, sizeof(b));       
-//         for (int i = 0; i < n; i++)
-//         {
-//             int k = (a[i] / f) % 10;
-//             b[k][0]++;
-//             b[k][b[k][0]] = a[i];
-//         }
-//         int k = 0;
-//         for (int i = 0; i < 10; i++)
-//         {
-//             if (b[i][0] != 0)
-//             {
-//                 for (int j = 1; j <= b[i][0]; j++)
-//                 {
-//                     a[k] = b[i][j];
-//                     k++;
-//                 }
-//             }
-//         }
-//         f *= 10;
-//     }
+void RadixSort(int *a, int n)
+{
+    int j = 0;
+    int c = countDigitNumMax(a, n);
+    int f = 1;
+    for (int d = 0; d < c; d++)
+    {
+        int b[10][n + 1] ;
+        memset(b, 0, sizeof(b));       
+        for (int i = 0; i < n; i++)
+        {
+            int k = (a[i] / f) % 10;
+            b[k][0]++;
+            b[k][b[k][0]] = a[i];
+        }
+        int k = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            if (b[i][0] != 0)
+            {
+                for (int j = 1; j <= b[i][0]; j++)
+                {
+                    a[k] = b[i][j];
+                    k++;
+                }
+            }
+        }
+        f *= 10;
+    }
    
-// }
+}
 
 void flashSort(int *a, int n)
 {

@@ -8,7 +8,6 @@
 #include "sort.h"
 #include "sortCompare.h"
 #include "data_generate.h"
-
 using namespace std;
 
 string dataOrder(int *, int, string);
