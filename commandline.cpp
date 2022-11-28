@@ -104,7 +104,6 @@ void commandline1(int argc, char *argv[])
 
     if (!strcmp(argv[4], "-time"))
     {
-        cout << "check";
         clock_t start = clock();
         activateSort(argv[2], a, n);
         clock_t end = clock();
@@ -125,8 +124,6 @@ void commandline1(int argc, char *argv[])
         cout << "Running time: " << double(end - start) << "ms\n";
         cout << "Comparision: " << comparision;
     }
-
-    for(int i = 0; i < n; i++) cout << a[i] << " ";
 
     writeFile("Random data", a, n, "output.txt");
 }
