@@ -4,6 +4,8 @@
 #include <vector>
 #include <cmath>
 
+using namespace std;
+
 void activateSortCount(char *, int *, int, long long int &);
 void selectionSortCount(int *, int, long long int &);
 void insertionSortCount(int *, int, long long int &);

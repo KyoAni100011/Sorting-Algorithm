@@ -1,13 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <string.h>
-#include <vector>
-#include <cmath>
-#include <stdlib.h>
-#include <time.h>
-#include "sort.h"
-
-using namespace std;
+#include "Sort.h"
 
 void activateSort(char *sort_type, int *a, int n)
 {
@@ -20,7 +11,7 @@ void activateSort(char *sort_type, int *a, int n)
     else if (!strcmp(sort_type, "merge-sort")) mergeSort(a,0,n - 1);
     else if (!strcmp(sort_type, "quick-sort")) quickSort(a,0,n - 1);
     else if (!strcmp(sort_type, "counting-sort")) countingSort(a,n);
-    else if (!strcmp(sort_type, "radix-sort")) radixSort(a,n);
+    //else if (!strcmp(sort_type, "radix-sort")) radixSort(a,n);
     else if (!strcmp(sort_type, "flash-sort")) flashSort(a,n);
 }
 
@@ -303,7 +294,7 @@ int countDigitNumMax(int *a, int n)
         }
     }
     int count = 0;
-    while( max > 1)
+    while( max > 0)
     {
         max = max / 10;
         count ++;
@@ -312,35 +303,37 @@ int countDigitNumMax(int *a, int n)
 }
 
 
-void radixSort(int *a, int n)
-{
-    int j = 0;
-    int c = countDigitNumMax(a,n) ;
-    int f  = 1;
-    for(int d = 0; d < c; d++)
-    {
-        int b[n][n] ={0};
-        for(int i = 0; i < n; i++)
-        {
-            int k = (a[i] / f) % 10;
-            b[k][0] ++;
-            b[k][b[k][0]] = a[i];
-        }
-        int k = 0;
-        for(int i = 0; i< n; i++)
-        {
-            if(b[i][0] != 0)
-            {
-                for(int j = 1; j <= b[i][0]; j++){
-                    a[k] = b[i][j];
-                    k++;
-                }
-            }
-        }
-        f *= 10;
-    }
-
-}
+// void RadixSort(int *a, int n)
+// {
+//     int j = 0;
+//     int c = countDigitNumMax(a, n);
+//     int f = 1;
+//     for (int d = 0; d < c; d++)
+//     {
+//         int b[10][n + 1] ;
+//         memset(b, 0, sizeof(b));       
+//         for (int i = 0; i < n; i++)
+//         {
+//             int k = (a[i] / f) % 10;
+//             b[k][0]++;
+//             b[k][b[k][0]] = a[i];
+//         }
+//         int k = 0;
+//         for (int i = 0; i < 10; i++)
+//         {
+//             if (b[i][0] != 0)
+//             {
+//                 for (int j = 1; j <= b[i][0]; j++)
+//                 {
+//                     a[k] = b[i][j];
+//                     k++;
+//                 }
+//             }
+//         }
+//         f *= 10;
+//     }
+   
+// }
 
 void flashSort(int *a, int n)
 {

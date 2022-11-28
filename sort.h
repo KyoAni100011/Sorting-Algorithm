@@ -5,6 +5,7 @@
 #include <cmath>
 #include <stdlib.h>
 #include <time.h>
+
 using namespace std;
 
 void activateSort(char *, int *, int);
@@ -21,5 +22,5 @@ int partition(int *, int, int);
 void quickSort(int *, int, int);
 void countingSort(int *, int);
 int countDigitNumMax(int *, int);
-void radixSort(int *, int);
+//void radixSort(int *, int);
 void flashSort(int *, int);
