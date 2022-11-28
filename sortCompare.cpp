@@ -145,38 +145,50 @@ void shellSortCount(int arr[], int n, long long int &count_compares)
     }
 }
 
-void mergeCount(int *a, int l, int m, int r, long long int &count_compares)
+void mergeCount(int *a, int left, int mid, int right, long long int &count_compares)
 {
-    int first1 = l, last1 = m, first2 = m + 1, last2 = r;
+    int i,j,k;
+    int n1 = mid + 1 - left, n2 = right - mid;
+    int *L = new int[n1], *R = new int[n2];
 
-    int *b = new int[100000];
-    int index = l;
+    for(int m = 0;++count_compares && m < n1; m++) L[m] = a[left + m];
+    for(int m = 0;++count_compares && m < n2; m++) R[m] = a[mid + 1 + m];
 
-    while ((++count_compares && first1 <= last1) && (++count_compares && first2 <= last2))
+    i = 0;
+    j = 0;
+    k = left;
+
+    while((++count_compares && i < n1) && (++count_compares && j < n2))
     {
-        if (++count_compares && a[first1] < a[first2])
-            b[index] = a[first1++];
+        if(++count_compares && L[i] >= R[j])
+        {
+            a[k] = R[j];
+            j++;
+        }
         else
-            b[index] = a[first2++];
-        index++;
+        {
+            a[k] = L[i];
+            i++;
+        }
+        k++;
     }
 
-    while (++count_compares && first1 <= last1)
+    while(++count_compares && i < n1)
     {
-        b[index++] = a[first1++];
+        a[k] = L[i];
+        i++;
+        k++;
     }
 
-    while (++count_compares && first2 <= last2)
+    while(++count_compares && j < n2)
     {
-        b[index++] = a[first2++];
+        a[k] = R[j];
+        j++;
+        k++;
     }
 
-    for (int i = l; ++count_compares && i <= r; i++)
-    {
-        a[i] = b[i];
-    }
-
-    delete[] b;
+    delete[] L;
+    delete[] R;
 }
 
 void mergeSortCount(int *a, int l, int r, long long int &count_compares)
@@ -225,27 +237,27 @@ void heapSortCount(int *a, int n, long long int &count_compares)
 
 int partitionCount(int *a, int left, int right, long long int &count_compares)
 {
-    // int pivot = a[left];
-    // int i = left - 1;
-    // int j = right + 1;
+    int pivot = a[left];
+    int i = left - 1;
+    int j = right + 1;
 
-    // while (++count_compares && 1)
-    // {
-    //     do
-    //     {
-    //         i++;
-    //     } while (++count_compares && a[i] < pivot);
+    while (++count_compares && 1)
+    {
+        do
+        {
+            i++;
+        } while (++count_compares && a[i] < pivot);
 
-    //     do
-    //     {
-    //         j--;
-    //     } while (++count_compares && a[j] > pivot);
+        do
+        {
+            j--;
+        } while (++count_compares && a[j] > pivot);
 
-    //     if (++count_compares && (i < j))
-    //         swap(a[i], a[j]);
-    //     else
-    //         return j;
-    // }
+        if (++count_compares && (i < j))
+            swap(a[i], a[j]);
+        else
+            return j;
+    }
 
     return 0;
 }

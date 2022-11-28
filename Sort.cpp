@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 #include "sort.h"
-=======
-#include "Sort.h"
->>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
 
 void activateSort(char *sort_type, int *a, int n)
 {
@@ -205,7 +201,7 @@ void mergeSort(int *a, int left, int right)
 {
     if(left < right)
     {
-        long long int mid = (left + right) / 2;
+        int mid = (left + right) / 2;
         mergeSort(a, left, mid);
         mergeSort(a, mid + 1, right);
         
@@ -215,39 +211,27 @@ void mergeSort(int *a, int left, int right)
 
 int partition(int *a, int left, int right)
 {
-    int pivot = a[left];
-    int i = left - 1;
-    int j = right + 1;
-
-    while (1)
+    int j = left - 1;
+    for(int i = left; i <= right-1; i++)
     {
-        do
+        if(a[i] < a[right])
         {
-            i++;
-        } while (a[i] < pivot);
-        
-        do
-        {
-            j--;
-        } while (a[j] > pivot);
-        
-        if (i < j)
-            swap(a[i], a[j]);
-        else
-            return j;    
+            j++;
+            swap(a[i],a[j]);
+        }
     }
+    swap(a[j + 1], a[right]);
+    return j + 1;
 }
 
 void quickSort(int *a, int left, int right)
 {
-    if (left >= right)
-        return;
-
-    if (left < right)
+    if(left < right)
     {
-        int mid = partition(a, left, right);
-        quickSort(a, left, mid);
-        quickSort(a, mid + 1, right);
+        int pivot = partition(a,left,right);
+
+        quickSort(a,left,pivot - 1);
+        quickSort(a, pivot + 1, right);
     }
 }
 
@@ -344,7 +328,7 @@ int countDigitNumMax(int *a, int n)
 }
 
 
-void radixSortCount(int *a, int n)
+void radixSort(int *a, int n)
 {
     int j = 0;
     int c = countDigitNumMax(a,n);
@@ -466,7 +450,3 @@ void flashSort(int *a, int n)
     delete[] l;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
