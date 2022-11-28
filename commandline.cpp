@@ -79,13 +79,28 @@ void readFile(int *&a, int &n, string file_name)
     }
 }
 
+<<<<<<< HEAD
+=======
+void writeFile(int *a, int n, string file_name)
+{
+    ofstream file(file_name, ios::out);
+    for(int i = 0; i < n; i++)
+        file << a[i] << " ";
+    file.close();
+}
+
+>>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
 void commandline1(int argc, char *argv[])
 {
     int *a = NULL, *b = NULL, n;
     long long int comparision = 0;
     createFile(argv[3]);
     readFile(a, n, argv[3]);
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
     b = new int[n];
 
     cout << "ALGORITHM MODE\n";
@@ -96,7 +111,10 @@ void commandline1(int argc, char *argv[])
 
     if (!strcmp(argv[4], "-time"))
     {
+<<<<<<< HEAD
         cout << "check";
+=======
+>>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
         clock_t start = clock();
         activateSort(argv[2], a, n);
         clock_t end = clock();
@@ -118,8 +136,11 @@ void commandline1(int argc, char *argv[])
         cout << "Comparision: " << comparision;
     }
 
+<<<<<<< HEAD
     // for(int i = 0; i < n; i++) cout << a[i] << " ";
 
+=======
+>>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
     writeFile("Random data", a, n, "output.txt");
 }
 
@@ -174,6 +195,7 @@ void commandline3(int argc, char *argv[])
     int *array4 = new int[data_size];
 
     string data_type1 = dataOrder(array1, data_size, "-rand");
+<<<<<<< HEAD
     writeFile(data_type1, array1, data_size, "input_1.txt");
     string data_type2 = dataOrder(array2, data_size, "-nsorted");
     writeFile(data_type2, array2, data_size, "input_2.txt");
@@ -181,6 +203,15 @@ void commandline3(int argc, char *argv[])
     writeFile(data_type3,array3, data_size, "input_3.txt");
     string data_type4 = dataOrder(array4, data_size, "-rev");
     writeFile(data_type4, array4, data_size, "input_4.txt");
+=======
+    writeFile(array1, data_size, "input_1.txt");
+    string data_type2 = dataOrder(array2, data_size, "-nsorted");
+    writeFile(array2, data_size, "input_2.txt");
+    string data_type3 = dataOrder(array3, data_size, "-sorted");
+    writeFile(array3, data_size, "input_3.txt");
+    string data_type4 = dataOrder(array4, data_size, "-rev");
+    writeFile(array4, data_size, "input_4.txt");
+>>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
 
     cout <<  "\nAlgorithm: " << argv[2] << "\n";
     cout << "Input size: " << data_size << "\n\n";
@@ -367,7 +398,11 @@ void commandline5(int argc, char *argv[])
     createTempArray(a,b,data_size);
     activateSortCount(argv[3],b,data_size,count_compares2);
 
+<<<<<<< HEAD
     cout << "Running time: " << end1 - start1 << "ms | " << end2 - start2 << "ms\n";
+=======
+    cout << "Running time: " << end1 - start1 << " | " << end2 - start2 << '\n';
+>>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
     cout << "Comparisons: " << count_compares1 << " | " << count_compares2 << '\n';
 }
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #include "sort.h"
+=======
+#include "Sort.h"
+>>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
 
 void activateSort(char *sort_type, int *a, int n)
 {
@@ -462,3 +466,7 @@ void flashSort(int *a, int n)
     delete[] l;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ec5a860ca52402116f8f8addbbb5ddf33642d378
