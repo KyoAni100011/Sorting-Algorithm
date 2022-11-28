@@ -320,19 +320,79 @@ void countDigitNumMax(int *a, int size, int place)
 }
 
 
-void radixSort(int *a, int size)
+int countDigitNumMax(int *a, int n)
 {
-    // Get maximum element
-    int max = 0;
-    for(int i = 0; i < size; i++)
+    int max = a[0];
+    for(int i = 1; i < n ; i++)
+    {
         if(a[i] > max)
+        {
             max = a[i];
-
-    // Apply counting sort to sort elements based on place value.
-    for (int place = 1; max / place > 0; place *= 10)
-        countDigitNumMax(a, size, place);
+        }
+    }
+    int count = 0;
+    while(max > 0)
+    {
+        max = max / 10;
+        count ++;
+    }
+    return count; 
 }
 
+
+void radixSortCount(int *a, int n)
+{
+    int j = 0;
+    int c = countDigitNumMax(a,n);
+    int f  = 1;
+    for(int d = 0; d < c; d++)
+    {   
+        int **b = new int *[10];
+        for(int i = 0; i < 10; i++)
+        {
+            b[i] = new int [n+1];
+        }
+
+        for(int i = 0; i < 10; i++)
+        {
+            for(int j = 0 ; j < n+1; j++)
+            {
+                b[i][j] = 0;
+            }
+        }  
+               
+        for(int i = 0; i < n; i++)
+        {
+            int k = (a[i] / f) % 10;
+            b[k][0] ++;
+            b[k][b[k][0]] = a[i];
+        }
+        
+        int k = 0;
+        for(int i = 0; i < 10; i++)
+        {
+            if(b[i][0] != 0)
+            {
+                for(int j = 1; j <= b[i][0]; j++)
+                {
+                    a[k] = b[i][j];
+                    
+                    k++;
+                }
+            }
+            
+        }
+
+        f *= 10;
+        for(int i = 0; i < 10; i++)
+        {
+            delete [] b[i];
+        }
+        delete [] b;
+        
+    }
+    
+}
 void flashSort(int *a, int n)
 {
     int m, minVal, max;

@@ -326,17 +326,30 @@ void radixSortCount(int *a, int n, long long int &count_compares)
     int c = countDigitNumMax(a,n, count_compares);
     int f  = 1;
     for(int d = 0; d < c && ++count_compares; d++)
-    {
-        int b[10][n + 1] ;
-        memset(b, 0, sizeof(b));        
+    {   
+        int **b = new int *[10];
+        for(int i = 0; i < 10 && ++count_compares; i++)
+        {
+            b[i] = new int [n+1];
+        }
+
+        for(int i = 0; i < 10 && ++count_compares; i++)
+        {
+            for(int j = 0 ; j < n + 1 && ++count_compares; j++)
+            {
+                b[i][j] = 0;
+            }
+        }  
+               
         for(int i = 0; i < n && ++count_compares; i++)
         {
             int k = (a[i] / f) % 10;
             b[k][0] ++;
             b[k][b[k][0]] = a[i];
         }
+        
         int k = 0;
-        for(int i = 0; i < n && ++count_compares; i++)
+        for(int i = 0; i < 10 && ++count_compares; i++)
         {
             if(++count_compares && b[i][0] != 0)
             {
@@ -346,12 +359,18 @@ void radixSortCount(int *a, int n, long long int &count_compares)
                     k++;
                 }
             }
+            
         }
         f *= 10;
+        for(int i = 0; i < 10 && ++count_compares; i++)
+        {
+            delete [] b[i];
+        }
+        delete [] b;
+        
     }
-
+    
 }
-
 void flashSortCount(int a[], int n, long long int &count_compares)
 {
     int m, minVal, max;
