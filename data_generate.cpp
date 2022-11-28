@@ -1,27 +1,20 @@
-#include "data_generate.h"	
+#include "data_generate.h"
 
-template <class T>
-void HoanVi(T &a, T &b)
-{
-	T x = a;
-	a = b;
-	b = x;
-}
 
-//-------------------------------------------------
+using namespace std;
 
-// Hàm phát sinh mảng dữ liệu ngẫu nhiên
+// Generate random data
 void GenerateRandomData(int a[], int n)
 {
 	srand((unsigned int)time(NULL));
 
 	for (int i = 0; i < n; i++)
 	{
-		a[i] = rand()%n;
+		a[i] = rand() % n;
 	}
 }
 
-// Hàm phát sinh mảng dữ liệu có thứ tự tăng dần
+// Generate Ascending Data
 void GenerateSortedData(int a[], int n)
 {
 	for (int i = 0; i < n; i++)
@@ -46,12 +39,12 @@ void GenerateNearlySortedData(int a[], int n)
 	{
 		a[i] = i;
 	}
-	srand((unsigned int) time(NULL));
-	for (int i = 0; i < 10; i ++)
+	srand((unsigned int)time(NULL));
+	for (int i = 0; i < 10; i++)
 	{
-		int r1 = rand()%n;
-		int r2 = rand()%n;
-		HoanVi(a[r1], a[r2]);
+		int r1 = rand() % n;
+		int r2 = rand() % n;
+		swap(a[r1], a[r2]);
 	}
 }
 
@@ -59,16 +52,16 @@ void GenerateData(int a[], int n, int dataType)
 {
 	switch (dataType)
 	{
-	case 0:	// ngẫu nhiên
+	case 0:
 		GenerateRandomData(a, n);
 		break;
-	case 1:	// có thứ tự
+	case 1:
 		GenerateSortedData(a, n);
 		break;
-	case 2:	// có thứ tự ngược
+	case 2:
 		GenerateReverseData(a, n);
 		break;
-	case 3:	// gần như có thứ tự
+	case 3:
 		GenerateNearlySortedData(a, n);
 		break;
 	default:
