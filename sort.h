@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <cstring>
-
 using namespace std;
 
 void activateSort(char *, int *, int);
