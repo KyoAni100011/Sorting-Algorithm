@@ -3,6 +3,7 @@
 #include <string.h>
 #include <vector>
 #include <cmath>
+using namespace std;
 
 using namespace std;
 
