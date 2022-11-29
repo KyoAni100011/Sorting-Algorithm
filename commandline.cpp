@@ -49,14 +49,14 @@ void writeFile(string data_type, int *a, int size, string file_name)
     file.close();
 }
 
-void createFile(string file_name)
+void createFile(string file_name, int n)
 {
     srand((unsigned int)time(NULL));
 
     ofstream file(file_name, ios::out);
-    file << "10000\n";
+    file << n << "\n";
 
-    for (int i = 0; i < 10000; i++)
+    for (int i = 0; i < n; i++)
     {
         file << rand() % 100 << " ";
     }
@@ -85,7 +85,7 @@ void commandline1(int argc, char *argv[])
 {
     int *a = NULL, *b = NULL, n;
     long long int comparision = 0;
-    createFile(argv[3]);
+    createFile(argv[3],500000);
     readFile(a, n, argv[3]);
     
     b = new int[n];

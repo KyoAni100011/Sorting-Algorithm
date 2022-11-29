@@ -276,9 +276,7 @@ void countingSortCount(int *a, int n, long long int &count_compares)
     }
 
     max = max + 1;
-    int b[max]; for (int i = 1; i < max; i++) b[i] = 0;
-
-    int c[max] , d[n];
+    int *b = new int[max]{0}, *c = new int[max] , *d = new int[n];
 
     for (int i = 0; i < n && ++count_compares; i++)
     {
@@ -298,6 +296,10 @@ void countingSortCount(int *a, int n, long long int &count_compares)
         d[c[a[i]] - b[a[i]]] = a[i];
         b[a[i]]--;
     }
+    
+    delete[] c;
+    delete[] b;
+    delete[] d;
 }
 
 int countDigitNumMax(int *a, int n, long long int &count_compares)

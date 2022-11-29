@@ -1,4 +1,5 @@
 #include "commandline.h"
+#include "test.h"
 
 int main(int argc, char *argv[])
 {
@@ -47,7 +48,8 @@ int main(int argc, char *argv[])
     }
     else
     {
-        cout << "Wrong command line";
+        cout << "Run test\n";
+        testAll();
     }
 
     return 0;
