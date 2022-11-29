@@ -9,7 +9,12 @@ void activateSort(char *sort_type, int *a, int n)
     else if (!strcmp(sort_type, "shell-sort")) shellSort(a,n);
     else if (!strcmp(sort_type, "heap-sort")) heapSort(a,n);
     else if (!strcmp(sort_type, "merge-sort")) mergeSort(a,0,n - 1);
-    else if (!strcmp(sort_type, "quick-sort")) quickSort(a,0,n - 1);
+    else if (!strcmp(sort_type, "quick-sort"))
+    {
+        cout << "FUCKKK";
+        quickSort(a,0,n - 1);
+        cout << "FUCKK";
+    }
     else if (!strcmp(sort_type, "counting-sort")) countingSort(a,n);
     else if (!strcmp(sort_type, "radix-sort")) radixSort(a,n);
     else if (!strcmp(sort_type, "flash-sort")) flashSort(a,n);
@@ -211,6 +216,8 @@ void mergeSort(int *a, int left, int right)
 
 int partition(int *a, int left, int right)
 {
+    swap(a[right], a[(left + right) / 2]);
+
     int j = left - 1;
     for(int i = left; i <= right-1; i++)
     {

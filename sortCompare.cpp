@@ -237,41 +237,28 @@ void heapSortCount(int *a, int n, long long int &count_compares)
 
 int partitionCount(int *a, int left, int right, long long int &count_compares)
 {
-    int pivot = a[left];
-    int i = left - 1;
-    int j = right + 1;
-
-    while (++count_compares && 1)
+    swap(a[right], a[(left + right) / 2]);
+    int j = left - 1;
+    for(int i = left;++count_compares && i <= right-1; i++)
     {
-        do
+        if(++count_compares && a[i] < a[right])
         {
-            i++;
-        } while (++count_compares && a[i] < pivot);
-
-        do
-        {
-            j--;
-        } while (++count_compares && a[j] > pivot);
-
-        if (++count_compares && (i < j))
-            swap(a[i], a[j]);
-        else
-            return j;
+            j++;
+            swap(a[i],a[j]);
+        }
     }
-
-    return 0;
+    swap(a[j + 1], a[right]);
+    return j + 1;
 }
 
 void quickSortCount(int *a, int left, int right, long long int &count_compares)
 {
-    if (++count_compares && left >= right)
-        return;
-
-    if (++count_compares && left < right)
+    if(++count_compares && left < right)
     {
-        int mid = partitionCount(a, left, right, count_compares);
-        quickSortCount(a, left, mid, count_compares);
-        quickSortCount(a, mid + 1, right, count_compares);
+        int pivot = partitionCount(a,left,right, count_compares);
+
+        quickSortCount(a,left,pivot - 1, count_compares);
+        quickSortCount(a, pivot + 1, right,count_compares);
     }
 }
 

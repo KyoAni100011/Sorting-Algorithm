@@ -370,5 +370,8 @@ void commandline5(int argc, char *argv[])
 
     cout << "Running time: " << end1 - start1 << "ms | " << end2 - start2 << "ms\n";
     cout << "Comparisons: " << count_compares1 << " | " << count_compares2 << '\n';
+
+    delete[] a;
+    delete[] b;
 }
 
