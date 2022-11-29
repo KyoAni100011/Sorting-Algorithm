@@ -256,7 +256,7 @@ void countingSort(int *a, int n)
 
     max = max + 1;
 
-    int *b = new int[max]{0}, *c = new int[max] , *d = new int[n];
+    int *b = new int[max]{0}, *c = new int[max]{0} , *d = new int[n]{0};
     for(int i = 0; i < n; i++)
 	{
         b[a[i]]++;
@@ -337,7 +337,6 @@ int countDigitNumMax(int *a, int n)
 
 void radixSort(int *a, int n)
 {
-    int j = 0;
     int c = countDigitNumMax(a,n);
     int f  = 1;
     for(int d = 0; d < c; d++)
