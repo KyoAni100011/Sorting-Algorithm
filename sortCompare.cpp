@@ -325,7 +325,6 @@ int countDigitNumMax(int *a, int n, long long int &count_compares)
 void radixSortCount(int *a, int n, long long int &count_compares)
 {
     count_compares = 0;
-    int j = 0;
     int c = countDigitNumMax(a,n, count_compares);
     int f  = 1;
     for(int d = 0; d < c && ++count_compares; d++)
