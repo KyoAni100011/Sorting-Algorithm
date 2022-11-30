@@ -102,7 +102,7 @@ void commandline1(int argc, char *argv[])
         clock_t start = clock();
         activateSort(argv[2], a, n);
         clock_t end = clock();
-        cout << "Running time: " << double(end - start) << "ms\n";
+        cout << "Running time: " << double(end - start)/CLOCKS_PER_SEC*1000<< "ms\n";
     }
     else if (!strcmp(argv[4], "-comp"))
     {
@@ -116,7 +116,7 @@ void commandline1(int argc, char *argv[])
         activateSort(argv[2], a, n);
         clock_t end = clock();
         activateSortCount(argv[2], b, n, comparision);
-        cout << "Running time: " << double(end - start) << "ms\n";
+        cout << "Running time: " << double(end - start)/CLOCKS_PER_SEC*1000 << "ms\n";
         cout << "Comparision: " << comparision;
     }
 
@@ -145,7 +145,7 @@ void commandline2(int argc, char *argv[])
         clock_t start = clock();
         activateSort(argv[2], a, data_size);
         clock_t end = clock();
-        cout << "Running time: " << double(end - start) << "ms\n";
+        cout << "Running time: " << double(end - start)/CLOCKS_PER_SEC*1000 << "ms\n";
     }
     else if (!strcmp(argv[5], "-comp"))
     {
@@ -159,7 +159,7 @@ void commandline2(int argc, char *argv[])
         activateSort(argv[2], a, data_size);
         clock_t end = clock();
         activateSortCount(argv[2], b, data_size, comparision);
-        cout << "Running time: " << double(end - start) << "ms\n";
+        cout << "Running time: " << double(end - start)/CLOCKS_PER_SEC*1000 << "ms\n";
         cout << "Comparision: " << comparision;
     }
 
@@ -220,28 +220,28 @@ void commandline3(int argc, char *argv[])
         clock_t start1 = clock();
         activateSort(argv[2], array1, data_size);
         clock_t end1 = clock();
-        cout << "Running time: " << double(end1 - start1) << "\n\n";
+        cout << "Running time: " << double(end1 - start1)/CLOCKS_PER_SEC*1000 << "\n\n";
 
         cout << "Input order: " << data_type2;
         cout << "\n--------------------------------\n";
         clock_t start2 = clock();
         activateSort(argv[2], array2, data_size);
         clock_t end2 = clock();
-        cout << "Running time: " << double(end2 - start2) << "\n\n";
+        cout << "Running time: " << double(end2 - start2)/CLOCKS_PER_SEC*1000 << "\n\n";
 
         cout << "Input order: " << data_type3;
         cout << "\n--------------------------------\n";
         clock_t start3 = clock();
         activateSort(argv[2], array3, data_size);
         clock_t end3 = clock();
-        cout << "Running time: " << double(end3 - start3) << "\n\n";
+        cout << "Running time: " << double(end3 - start3)/CLOCKS_PER_SEC*1000 << "\n\n";
 
         cout << "Input order: " << data_type4;
         cout << "\n--------------------------------\n";
         clock_t start4 = clock();
         activateSort(argv[2], array4, data_size);
         clock_t end4 = clock();
-        cout << "Running time: " << double(end4 - start4) << "\n\n";
+        cout << "Running time: " << double(end4 - start4)/CLOCKS_PER_SEC*1000 << "\n\n";
     }
     else if (!strcmp(argv[4], "-both"))
     {
@@ -253,7 +253,7 @@ void commandline3(int argc, char *argv[])
         createTempArray(array1, temp, data_size);
         activateSort(argv[2], temp, data_size);
         clock_t end1 = clock();
-        cout << "Running time: " << double(end1 - start1) << "\n";
+        cout << "Running time: " << double(end1 - start1)/CLOCKS_PER_SEC*1000 << "\n";
         long long int count_compares1 = 0;
         activateSortCount(argv[2], array1, data_size, count_compares1);
         cout << "Comparisons: " << count_compares1 << "\n\n";
@@ -264,7 +264,7 @@ void commandline3(int argc, char *argv[])
         createTempArray(array2, temp, data_size);
         activateSort(argv[2], temp, data_size);
         clock_t end2 = clock();
-        cout << "Running time: " << double(end2 - start2) << "\n";
+        cout << "Running time: " << double(end2 - start2)/CLOCKS_PER_SEC*1000 << "\n";
         long long int count_compares2 = 0;
         activateSortCount(argv[2], array2, data_size, count_compares2);
         cout << "Comparisons: " << count_compares2 << "\n\n";
@@ -275,7 +275,7 @@ void commandline3(int argc, char *argv[])
         createTempArray(array3, temp, data_size);
         activateSort(argv[2], temp, data_size);
         clock_t end3 = clock();
-        cout << "Running time: " << double(end3 - start3) << "\n";
+        cout << "Running time: " << double(end3 - start3)/CLOCKS_PER_SEC*1000 << "\n";
         long long int count_compares3 = 0;
         activateSortCount(argv[2], array3, data_size, count_compares3);
         cout << "Comparisons: " << count_compares3 << "\n\n";
@@ -286,7 +286,7 @@ void commandline3(int argc, char *argv[])
         createTempArray(array4, temp, data_size);
         activateSort(argv[2], temp, data_size);
         clock_t end4 = clock();
-        cout << "Running time: " << double(end4 - start4) << "\n";
+        cout << "Running time: " << double(end4 - start4)/CLOCKS_PER_SEC*1000 << "\n";
         long long int count_compares4 = 0;
         activateSortCount(argv[2], array4, data_size, count_compares4);
         cout << "Comparisons: " << count_compares4 << "\n\n";
@@ -330,7 +330,7 @@ void commandline4(int argc, char *argv[])
     createTempArray(a,b,data_size);
     activateSortCount(argv[3],b,data_size,count_compares2);
 
-    cout << "Running time: " << end1 - start1 << "ms | " << end2 - start2 << "ms\n";
+    cout << "Running time: " << (end1 - start1)/CLOCKS_PER_SEC*1000 << "ms | " << (end2 - start2)/CLOCKS_PER_SEC*1000 << "ms\n";
     cout << "Comparisons: " << count_compares1 << " | " << count_compares2 << '\n';
 
     writeFile("Random data", b, data_size, "output.txt");
@@ -368,7 +368,7 @@ void commandline5(int argc, char *argv[])
     createTempArray(a,b,data_size);
     activateSortCount(argv[3],b,data_size,count_compares2);
 
-    cout << "Running time: " << end1 - start1 << "ms | " << end2 - start2 << "ms\n";
+    cout << "Running time: " << (end1 - start1)/CLOCKS_PER_SEC*1000 << "ms | " << (end2 - start2)/CLOCKS_PER_SEC*1000 << "ms\n";
     cout << "Comparisons: " << count_compares1 << " | " << count_compares2 << '\n';
 
     delete[] a;

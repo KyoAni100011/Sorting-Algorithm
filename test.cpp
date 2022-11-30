@@ -35,7 +35,7 @@ void testAll()
 				b[i] = a[i];
 			clock_t begin = clock();
 			bubbleSort(b, n);
-			double timeUsed = ((double)clock() - begin);
+			double timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000/CLOCKS_PER_SEC*1000;
             for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -48,7 +48,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			shakerSort(b, n);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000/CLOCKS_PER_SEC*1000;
             for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -61,7 +61,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			selectionSort(b, n);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000/CLOCKS_PER_SEC*1000;
             for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -74,7 +74,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			insertionSort(b, n);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -87,7 +87,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			shellSort(b, n);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -100,7 +100,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			heapSort(b, n);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -113,7 +113,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			mergeSort(b, 0, n - 1);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -126,7 +126,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			quickSort(b, 0, n - 1);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -139,7 +139,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			countingSort(b, n);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -152,7 +152,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			radixSort(b, n);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
@@ -165,7 +165,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			flashSort(b, n);
-			timeUsed = ((double)clock() - begin);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
             compare = 0;
