@@ -2,7 +2,7 @@
 
 void testAll()
 {
-    int size[6] = {10000, 30000, 50000, 100000, 300000, 500000};
+    int size[6] = {10000, 50000, 300000};
 	int type = 0;
     long long int compare;
 	ofstream ofs;
@@ -31,32 +31,8 @@ void testAll()
 			int *b = new int[n];
 			GenerateData(a, n, type);
 			ofs << "==============" << n << "==============" << endl << endl;
-			for (int i = 0; i < n; i++)
-				b[i] = a[i];
-			clock_t begin = clock();
-			bubbleSort(b, n);
-			double timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000/CLOCKS_PER_SEC*1000;
-            for (int i = 0; i < n; i++)
-				b[i] = a[i];
-            compare = 0;
-            bubbleSortCount(b,n,compare);
-			ofs << "Bubble Sort: \n";
-            ofs << "Running time: " << timeUsed << "ms" << endl;
-            ofs << "Comparision : " << compare << endl;
 
-			for (int i = 0; i < n; i++)
-				b[i] = a[i];
-			begin = clock();
-			shakerSort(b, n);
-			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000/CLOCKS_PER_SEC*1000;
-            for (int i = 0; i < n; i++)
-				b[i] = a[i];
-            compare = 0;
-            shakerSortCount(b,n,compare);
-			ofs << "Shaker Sort: " << timeUsed << "ms" << endl;
-            ofs << "Running time: " << timeUsed << "ms" << endl;
-            ofs << "Comparision : " << compare << endl;
-
+			
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			begin = clock();
@@ -80,6 +56,32 @@ void testAll()
             compare = 0;
             insertionSortCount(a,n,compare);
 			ofs << "Insertion Sort: " << timeUsed << "ms" << endl;
+            ofs << "Running time: " << timeUsed << "ms" << endl;
+            ofs << "Comparision : " << compare << endl;
+
+			for (int i = 0; i < n; i++)
+				b[i] = a[i];
+			clock_t begin = clock();
+			bubbleSort(b, n);
+			double timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000/CLOCKS_PER_SEC*1000;
+            for (int i = 0; i < n; i++)
+				b[i] = a[i];
+            compare = 0;
+            bubbleSortCount(b,n,compare);
+			ofs << "Bubble Sort: \n";
+            ofs << "Running time: " << timeUsed << "ms" << endl;
+            ofs << "Comparision : " << compare << endl;
+
+			for (int i = 0; i < n; i++)
+				b[i] = a[i];
+			begin = clock();
+			shakerSort(b, n);
+			timeUsed = ((double)clock() - begin)/CLOCKS_PER_SEC*1000/CLOCKS_PER_SEC*1000;
+            for (int i = 0; i < n; i++)
+				b[i] = a[i];
+            compare = 0;
+            shakerSortCount(b,n,compare);
+			ofs << "Shaker Sort: " << timeUsed << "ms" << endl;
             ofs << "Running time: " << timeUsed << "ms" << endl;
             ofs << "Comparision : " << compare << endl;
 
