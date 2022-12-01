@@ -7,9 +7,8 @@ void testAll()
 	long long int compare;
 	ofstream ofs;
 	clock_t begin;
-	double timeUsed;
+	clock_t end;
 	ofs.open("result.txt", ios::out);
-	clock_t begin;
 	while (type < 4)
 	{
 		switch (type)
@@ -40,11 +39,11 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			selectionSort(b, n);
-			double timeUsed = ((double)clock() - begin) / CLOCKS_PER_SEC * 1000 / CLOCKS_PER_SEC * 1000;
+			double timeUsed = (double)(clock() - begin) / CLOCKS_PER_SEC * 1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
-			selectionSortCount(a, n, compare);
+			selectionSortCount(b, n, compare);
 			ofs << "Selection Sort: " << timeUsed << "ms" << endl;
 			ofs << "Running time: " << timeUsed << "ms" << endl;
 			ofs << "Comparision : " << compare << endl;
@@ -53,12 +52,13 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			insertionSort(b, n);
-			timeUsed = ((double)clock() - begin) / CLOCKS_PER_SEC * 1000;
+			end = clock();
+			timeUsed = (double)(end - begin) / CLOCKS_PER_SEC * 1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
-			insertionSortCount(a, n, compare);
-			ofs << "Insertion Sort: " << timeUsed << "ms" << endl;
+			insertionSortCount(b, n, compare);
+			ofs << "Insertion Sort: \n";
 			ofs << "Running time: " << timeUsed << "ms" << endl;
 			ofs << "Comparision : " << compare << endl;
 
@@ -66,7 +66,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			bubbleSort(b, n);
-			timeUsed = ((double)clock() - begin) / CLOCKS_PER_SEC * 1000 / CLOCKS_PER_SEC * 1000;
+			timeUsed = ((double)clock() - begin) / CLOCKS_PER_SEC * 1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
@@ -79,7 +79,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			shakerSort(b, n);
-			timeUsed = ((double)clock() - begin) / CLOCKS_PER_SEC * 1000 / CLOCKS_PER_SEC * 1000;
+			timeUsed = ((double)clock() - begin) / CLOCKS_PER_SEC * 1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
@@ -96,7 +96,7 @@ void testAll()
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
-			shellSortCount(a, n, compare);
+			shellSortCount(b, n, compare);
 			ofs << "Shell Sort: " << timeUsed << "ms" << endl;
 			ofs << "Running time: " << timeUsed << "ms" << endl;
 			ofs << "Comparision : " << compare << endl;
@@ -109,7 +109,7 @@ void testAll()
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
-			heapSortCount(a, n, compare);
+			heapSortCount(b, n, compare);
 			ofs << "Heap Sort: " << timeUsed << "ms" << endl;
 			ofs << "Running time: " << timeUsed << "ms" << endl;
 			ofs << "Comparision : " << compare << endl;
@@ -122,7 +122,7 @@ void testAll()
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
-			mergeSortCount(a, 0, n - 1, compare);
+			mergeSortCount(b, 0, n - 1, compare);
 			ofs << "Merge Sort: " << timeUsed << "ms" << endl;
 			ofs << "Running time: " << timeUsed << "ms" << endl;
 			ofs << "Comparision : " << compare << endl;
@@ -135,7 +135,7 @@ void testAll()
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
-			quickSortCount(a, 0, n - 1, compare);
+			quickSortCount(b, 0, n - 1, compare);
 			ofs << "Quick Sort: " << timeUsed << "ms" << endl;
 			ofs << "Running time: " << timeUsed << "ms" << endl;
 			ofs << "Comparision : " << compare << endl;
@@ -148,7 +148,7 @@ void testAll()
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
-			countingSortCount(a, n, compare);
+			countingSortCount(b, n, compare);
 			ofs << "Counting Sort: " << timeUsed << "ms" << endl;
 			ofs << "Running time: " << timeUsed << "ms" << endl;
 			ofs << "Comparision : " << compare << endl;
@@ -161,7 +161,7 @@ void testAll()
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
-			radixSortCount(a, n, compare);
+			radixSortCount(b, n, compare);
 			ofs << "Radix Sort: " << timeUsed << "ms" << endl;
 			ofs << "Running time: " << timeUsed << "ms" << endl;
 			ofs << "Comparision : " << compare << endl;
@@ -174,7 +174,7 @@ void testAll()
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
-			flashSortCount(a, n, compare);
+			flashSortCount(b, n, compare);
 			ofs << "Flash Sort: " << timeUsed << "ms" << endl;
 			ofs << "Running time: " << timeUsed << "ms" << endl;
 			ofs << "Comparision : " << compare << endl;
