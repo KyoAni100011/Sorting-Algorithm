@@ -1,6 +1,7 @@
 RANDOM DATA
 ==============10000==============
 
+<<<<<<< HEAD
 Selection Sort: 147ms
 Running time: 147ms
 Comparision : 100019998
@@ -43,3 +44,41 @@ Comparision : 2500099998
 Insertion Sort: 
 Running time: 1031ms
 Comparision : 1257747414
+=======
+Selection Sort: 221ms
+Running time: 221ms
+Comparision : 100019998
+Insertion Sort: 0ms
+Running time: 0ms
+Comparision : 29998
+Bubble Sort: 
+Running time: 1ms
+Comparision : 20001
+Shaker Sort: 0ms
+Running time: 0ms
+Comparision : 20001
+Shell Sort: 1ms
+Running time: 1ms
+Comparision : 360028
+Heap Sort: 3ms
+Running time: 3ms
+Comparision : 668018
+Merge Sort: 3ms
+Running time: 3ms
+Comparision : 480804
+Quick Sort: 1ms
+Running time: 1ms
+Comparision : 249023
+Counting Sort: 0ms
+Running time: 0ms
+Comparision : 59998
+Radix Sort: 4ms
+Running time: 4ms
+Comparision : 500247
+Flash Sort: 1ms
+Running time: 1ms
+Comparision : 118336
+
+==============50000==============
+
+>>>>>>> e8fd46bacb909175c17024f98a5a908ccc27f2c1
