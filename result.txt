@@ -2,49 +2,49 @@ RANDOM DATA
 ==============10000==============
 
 Bubble Sort: 
-Running time: 289ms
-Comparision : 100012605
-Shaker Sort: 223ms
-Running time: 223ms
-Comparision : 66719465
-Selection Sort: 98ms
-Running time: 98ms
+Running time: 292ms
+Comparision : 99981585
+Shaker Sort: 224ms
+Running time: 224ms
+Comparision : 66414475
+Selection Sort: 102ms
+Running time: 102ms
 Comparision : 100019998
 Insertion Sort: 0ms
 Running time: 0ms
 Comparision : 29998
-Shell Sort: 1ms
-Running time: 1ms
+Shell Sort: 0ms
+Running time: 0ms
 Comparision : 360028
-Heap Sort: 2ms
-Running time: 2ms
-Comparision : 668075
+Heap Sort: 1ms
+Running time: 1ms
+Comparision : 667968
 Merge Sort: 2ms
 Running time: 2ms
-Comparision : 480692
+Comparision : 480763
 Quick Sort: 1ms
 Running time: 1ms
-Comparision : 249140
-Counting Sort: 0ms
-Running time: 0ms
+Comparision : 249295
+Counting Sort: 1ms
+Running time: 1ms
 Comparision : 49998
-Radix Sort: 3ms
-Running time: 3ms
+Radix Sort: 
+Running time: 2ms
 Comparision : 500247
-Flash Sort: 0ms
-Running time: 0ms
-Comparision : 113766
+Flash Sort: 1ms
+Running time: 1ms
+Comparision : 113900
 
 ==============30000==============
 
 Bubble Sort: 
-Running time: 2882ms
-Comparision : 900030417
-Shaker Sort: 2096ms
-Running time: 2096ms
-Comparision : 602441231
-Selection Sort: 885ms
-Running time: 885ms
+Running time: 2902ms
+Comparision : 900055645
+Shaker Sort: 2092ms
+Running time: 2092ms
+Comparision : 596653995
+Selection Sort: 876ms
+Running time: 876ms
 Comparision : 900059998
 Insertion Sort: 0ms
 Running time: 0ms
@@ -54,25 +54,97 @@ Running time: 1ms
 Comparision : 1170035
 Heap Sort: 5ms
 Running time: 5ms
-Comparision : 2238539
-Merge Sort: 6ms
-Running time: 6ms
-Comparision : 1578300
+Comparision : 2238889
+Merge Sort: 7ms
+Running time: 7ms
+Comparision : 1578329
 Quick Sort: 2ms
 Running time: 2ms
-Comparision : 843227
+Comparision : 843544
 Counting Sort: 0ms
 Running time: 0ms
-Comparision : 149997
-Radix Sort: 8ms
+Comparision : 149994
+Radix Sort: 
 Running time: 8ms
 Comparision : 1860309
-Flash Sort: 2ms
-Running time: 2ms
-Comparision : 341357
+Flash Sort: 1ms
+Running time: 1ms
+Comparision : 341557
 
 ==============50000==============
 
 Bubble Sort: 
-Running time: 8226ms
-Comparision : 2500011197
+Running time: 8170ms
+Comparision : 2500063901
+Shaker Sort: 5903ms
+Running time: 5903ms
+Comparision : 1670353027
+Selection Sort: 2429ms
+Running time: 2429ms
+Comparision : 2500099998
+Insertion Sort: 0ms
+Running time: 0ms
+Comparision : 149998
+Shell Sort: 2ms
+Running time: 2ms
+Comparision : 2100033
+Heap Sort: 9ms
+Running time: 9ms
+Comparision : 3928974
+Merge Sort: 10ms
+Running time: 10ms
+Comparision : 2757249
+Quick Sort: 3ms
+Running time: 3ms
+Comparision : 1485390
+Counting Sort: 1ms
+Running time: 1ms
+Comparision : 232766
+Radix Sort: 
+Running time: 12ms
+Comparision : 3100309
+Flash Sort: 2ms
+Running time: 2ms
+Comparision : 554980
+
+==============100000==============
+
+Bubble Sort: 
+Running time: 33592ms
+Comparision : 9999938880
+Shaker Sort: 23820ms
+Running time: 23820ms
+Comparision : 6679987817
+Selection Sort: 9739ms
+Running time: 9739ms
+Comparision : 10000199998
+Insertion Sort: 0ms
+Running time: 0ms
+Comparision : 299998
+Shell Sort: 5ms
+Running time: 5ms
+Comparision : 4500034
+Heap Sort: 18ms
+Running time: 18ms
+Comparision : 8359373
+Merge Sort: 20ms
+Running time: 20ms
+Comparision : 5851180
+Quick Sort: 7ms
+Running time: 7ms
+Comparision : 3243647
+Counting Sort: 2ms
+Running time: 2ms
+Comparision : 432766
+Radix Sort: 
+Running time: 25ms
+Comparision : 6200309
+Flash Sort: 4ms
+Running time: 4ms
+Comparision : 1038821
+
+==============300000==============
+
+Bubble Sort: 
+Running time: 302970ms
+Comparision : 90000380977

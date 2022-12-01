@@ -24,7 +24,7 @@ void testAll()
 			ofs << "NEARLY SORTED DATA" << endl;
 			break;
 		};
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < 6; j++)
 		{
 			int n = size[j];
 			int *a = new int[n];
@@ -157,7 +157,7 @@ void testAll()
 				b[i] = a[i];
             compare = 0;
             radixSortCount(a,n,compare);
-			ofs << "Radix Sort: " << timeUsed << "ms" << endl;
+			ofs << "Radix Sort: \n";
             ofs << "Running time: " << timeUsed << "ms" << endl;
             ofs << "Comparision : " << compare << endl;
 
