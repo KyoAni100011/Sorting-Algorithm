@@ -11,7 +11,7 @@ using namespace std;
 void activateSort(char *, int *, int);
 void selectionSort(int *, int);
 int binarySearch(int *, int, int, int);
-void binaryInsertionSort(int *, int );
+void binaryInsertionSort(int *, int);
 void insertionSort(int *, int);
 void bubbleSort(int *, int);
 void shakerSort(int *, int);

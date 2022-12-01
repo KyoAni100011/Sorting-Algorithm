@@ -1,6 +1,5 @@
 #include "data_generate.h"
 
-
 using namespace std;
 
 // Generate random data

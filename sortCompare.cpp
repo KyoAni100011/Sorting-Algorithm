@@ -24,6 +24,8 @@ void activateSortCount(char *sort_type, int *a, int n, long long int &count_comp
         radixSortCount(a, n, count_compares);
     else if (!strcmp(sort_type, "flash-sort"))
         flashSortCount(a, n, count_compares);
+    else if (!strcmp(sort_type, "binary-insertion-sort"))
+        binaryInsertionSortCount(a, n, count_compares);
 }
 
 void selectionSortCount(int *a, int n, long long int &count_compares)
@@ -49,7 +51,7 @@ void selectionSortCount(int *a, int n, long long int &count_compares)
 }
 int binarySearchCount(int *a, int x, int l, int r, long long int &count_compares)
 {
-    while(++count_compares && l <= r)
+    while (++count_compares && l <= r)
     {
         int mid = (l + r) / 2;
         if (++count_compares && x == a[mid])
@@ -66,8 +68,8 @@ int binarySearchCount(int *a, int x, int l, int r, long long int &count_compares
 void binaryInsertionSortCount(int *a, int n, long long int &count_compares)
 {
     int loc, j, k, key;
-    
-    for (int i = 1; ++count_compares &&  i < n; i++)
+
+    for (int i = 1; ++count_compares && i < n; i++)
     {
         j = i - 1;
         key = a[i];
@@ -80,7 +82,6 @@ void binaryInsertionSortCount(int *a, int n, long long int &count_compares)
             j--;
         }
         a[j + 1] = key;
-
     }
 }
 
@@ -183,20 +184,22 @@ void shellSortCount(int arr[], int n, long long int &count_compares)
 
 void mergeCount(int *a, int left, int mid, int right, long long int &count_compares)
 {
-    int i,j,k;
+    int i, j, k;
     int n1 = mid + 1 - left, n2 = right - mid;
     int *L = new int[n1], *R = new int[n2];
 
-    for(int m = 0;++count_compares && m < n1; m++) L[m] = a[left + m];
-    for(int m = 0;++count_compares && m < n2; m++) R[m] = a[mid + 1 + m];
+    for (int m = 0; ++count_compares && m < n1; m++)
+        L[m] = a[left + m];
+    for (int m = 0; ++count_compares && m < n2; m++)
+        R[m] = a[mid + 1 + m];
 
     i = 0;
     j = 0;
     k = left;
 
-    while((++count_compares && i < n1) && (++count_compares && j < n2))
+    while ((++count_compares && i < n1) && (++count_compares && j < n2))
     {
-        if(++count_compares && L[i] >= R[j])
+        if (++count_compares && L[i] >= R[j])
         {
             a[k] = R[j];
             j++;
@@ -209,14 +212,14 @@ void mergeCount(int *a, int left, int mid, int right, long long int &count_compa
         k++;
     }
 
-    while(++count_compares && i < n1)
+    while (++count_compares && i < n1)
     {
         a[k] = L[i];
         i++;
         k++;
     }
 
-    while(++count_compares && j < n2)
+    while (++count_compares && j < n2)
     {
         a[k] = R[j];
         j++;
@@ -275,12 +278,12 @@ int partitionCount(int *a, int left, int right, long long int &count_compares)
 {
     swap(a[right], a[(left + right) / 2]);
     int j = left - 1;
-    for(int i = left;++count_compares && i <= right-1; i++)
+    for (int i = left; ++count_compares && i <= right - 1; i++)
     {
-        if(++count_compares && a[i] < a[right])
+        if (++count_compares && a[i] < a[right])
         {
             j++;
-            swap(a[i],a[j]);
+            swap(a[i], a[j]);
         }
     }
     swap(a[j + 1], a[right]);
@@ -289,12 +292,12 @@ int partitionCount(int *a, int left, int right, long long int &count_compares)
 
 void quickSortCount(int *a, int left, int right, long long int &count_compares)
 {
-    if(++count_compares && left < right)
+    if (++count_compares && left < right)
     {
-        int pivot = partitionCount(a,left,right, count_compares);
+        int pivot = partitionCount(a, left, right, count_compares);
 
-        quickSortCount(a,left,pivot - 1, count_compares);
-        quickSortCount(a, pivot + 1, right,count_compares);
+        quickSortCount(a, left, pivot - 1, count_compares);
+        quickSortCount(a, pivot + 1, right, count_compares);
     }
 }
 
@@ -312,7 +315,7 @@ void countingSortCount(int *a, int n, long long int &count_compares)
     }
 
     max = max + 1;
-    int *b = new int[max]{0}, *c = new int[max] , *d = new int[n];
+    int *b = new int[max]{0}, *c = new int[max], *d = new int[n];
 
     for (int i = 0; i < n && ++count_compares; i++)
     {
@@ -332,7 +335,7 @@ void countingSortCount(int *a, int n, long long int &count_compares)
         d[c[a[i]] - b[a[i]]] = a[i];
         b[a[i]]--;
     }
-    
+
     delete[] c;
     delete[] b;
     delete[] d;
@@ -341,73 +344,69 @@ void countingSortCount(int *a, int n, long long int &count_compares)
 int countDigitNumMax(int *a, int n, long long int &count_compares)
 {
     int max = a[0];
-    for(int i = 1; i < n && ++count_compares; i++)
+    for (int i = 1; i < n && ++count_compares; i++)
     {
-        if(++count_compares && a[i] > max)
+        if (++count_compares && a[i] > max)
         {
             max = a[i];
         }
     }
     int count = 0;
-    while(++count_compares && max > 0)
+    while (++count_compares && max > 0)
     {
         max = max / 10;
-        count ++;
+        count++;
     }
-    return count; 
+    return count;
 }
-
 
 void radixSortCount(int *a, int n, long long int &count_compares)
 {
     count_compares = 0;
-    int c = countDigitNumMax(a,n, count_compares);
-    int f  = 1;
-    for(int d = 0; d < c && ++count_compares; d++)
-    {   
+    int c = countDigitNumMax(a, n, count_compares);
+    int f = 1;
+    for (int d = 0; d < c && ++count_compares; d++)
+    {
         int **b = new int *[10];
-        for(int i = 0; i < 10 && ++count_compares; i++)
+        for (int i = 0; i < 10 && ++count_compares; i++)
         {
-            b[i] = new int [n+1];
+            b[i] = new int[n + 1];
         }
 
-        for(int i = 0; i < 10 && ++count_compares; i++)
+        for (int i = 0; i < 10 && ++count_compares; i++)
         {
-            for(int j = 0 ; j < n + 1 && ++count_compares; j++)
+            for (int j = 0; j < n + 1 && ++count_compares; j++)
             {
                 b[i][j] = 0;
             }
-        }  
-               
-        for(int i = 0; i < n && ++count_compares; i++)
+        }
+
+        for (int i = 0; i < n && ++count_compares; i++)
         {
             int k = (a[i] / f) % 10;
-            b[k][0] ++;
+            b[k][0]++;
             b[k][b[k][0]] = a[i];
         }
-        
+
         int k = 0;
-        for(int i = 0; i < 10 && ++count_compares; i++)
+        for (int i = 0; i < 10 && ++count_compares; i++)
         {
-            if(++count_compares && b[i][0] != 0)
+            if (++count_compares && b[i][0] != 0)
             {
-                for(int j = 1; j <= b[i][0] && ++count_compares; j++)
+                for (int j = 1; j <= b[i][0] && ++count_compares; j++)
                 {
                     a[k] = b[i][j];
                     k++;
                 }
             }
-            
         }
         f *= 10;
-        for(int i = 0; i < 10 && ++count_compares; i++)
+        for (int i = 0; i < 10 && ++count_compares; i++)
         {
-            delete [] b[i];
+            delete[] b[i];
         }
-        delete [] b;
-        
+        delete[] b;
     }
-    
 }
 
 void flashSortCount(int a[], int n, long long int &count_compares)
@@ -417,7 +416,9 @@ void flashSortCount(int a[], int n, long long int &count_compares)
     double c1;
 
     m = int(0.45 * n);
-    l = new int[m]; for (int i = 1; i < m; i++) l[i] = 0;
+    l = new int[m];
+    for (int i = 1; i < m; i++)
+        l[i] = 0;
     minVal = a[0];
     max = 0;
 
