@@ -9,6 +9,7 @@ void testAll()
 	clock_t begin;
 	double timeUsed;
 	ofs.open("result.txt", ios::out);
+	clock_t begin;
 	while (type < 4)
 	{
 		switch (type)
@@ -39,7 +40,7 @@ void testAll()
 				b[i] = a[i];
 			begin = clock();
 			selectionSort(b, n);
-			timeUsed = ((double)clock() - begin) / CLOCKS_PER_SEC * 1000 / CLOCKS_PER_SEC * 1000;
+			double timeUsed = ((double)clock() - begin) / CLOCKS_PER_SEC * 1000 / CLOCKS_PER_SEC * 1000;
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
 			compare = 0;
@@ -63,7 +64,7 @@ void testAll()
 
 			for (int i = 0; i < n; i++)
 				b[i] = a[i];
-			clock_t begin = clock();
+			begin = clock();
 			bubbleSort(b, n);
 			timeUsed = ((double)clock() - begin) / CLOCKS_PER_SEC * 1000 / CLOCKS_PER_SEC * 1000;
 			for (int i = 0; i < n; i++)
