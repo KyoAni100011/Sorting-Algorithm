@@ -8,6 +8,8 @@ using namespace std;
 
 void activateSortCount(char *, int *, int, long long int &);
 void selectionSortCount(int *, int, long long int &);
+int binarySearchCount(int *, int, int, int, long long int &);
+void binaryInsertionSortCount(int *, int, long long int &);
 void insertionSortCount(int *, int, long long int &);
 void bubbleSortCount(int *, int, long long int &);
 void shakerSortCount(int *, int, long long int &);
