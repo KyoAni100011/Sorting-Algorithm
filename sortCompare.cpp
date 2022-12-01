@@ -47,6 +47,42 @@ void selectionSortCount(int *a, int n, long long int &count_compares)
         }
     }
 }
+int binarySearchCount(int *a, int x, int l, int r, long long int &count_compares)
+{
+    while(++count_compares && l <= r)
+    {
+        int mid = (l + r) / 2;
+        if (++count_compares && x == a[mid])
+            return mid + 1;
+        else if (++count_compares && x > a[mid])
+            l = mid + 1;
+        else if (++count_compares && x < a[mid])
+            r = mid - 1;
+    }
+
+    return l;
+}
+
+void binaryInsertionSortCount(int *a, int n, long long int &count_compares)
+{
+    int loc, j, k, key;
+    
+    for (int i = 1; ++count_compares &&  i < n; i++)
+    {
+        j = i - 1;
+        key = a[i];
+
+        loc = binarySearchCount(a, key, 0, j, count_compares);
+
+        while (++count_compares && j >= loc)
+        {
+            a[j + 1] = a[j];
+            j--;
+        }
+        a[j + 1] = key;
+
+    }
+}
 
 void insertionSortCount(int a[], int n, long long int &count_compares)
 {

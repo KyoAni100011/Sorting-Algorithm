@@ -13,6 +13,7 @@ void activateSort(char *sort_type, int *a, int n)
     else if (!strcmp(sort_type, "counting-sort")) countingSort(a,n);
     else if (!strcmp(sort_type, "radix-sort")) radixSort(a,n);
     else if (!strcmp(sort_type, "flash-sort")) flashSort(a,n);
+    else if (!strcmp(sort_type, "binary-insertion-sort")) binaryInsertionSort(a,n);
 }
 
 void selectionSort(int *a, int n)
@@ -33,6 +34,43 @@ void selectionSort(int *a, int n)
 			swap(a[max],a[i]);
 		}
 	}
+}
+
+int binarySearch(int *a, int x, int l, int r)
+{
+    while(l <= r)
+    {
+        int mid = (l + r) / 2;
+        if (x == a[mid])
+            return mid + 1;
+        else if (x > a[mid])
+            l = mid + 1;
+        else if (x < a[mid])
+            r = mid - 1;
+    }
+
+    return l;
+}
+
+void binaryInsertionSort(int *a, int n)
+{
+    int loc, j, k, key;
+    
+    for (int i = 1; i < n; i++)
+    {
+        j = i - 1;
+        key = a[i];
+
+        loc = binarySearch(a, key, 0, j);
+
+        while (j >= loc)
+        {
+            a[j + 1] = a[j];
+            j--;
+        }
+        a[j + 1] = key;
+
+    }
 }
 
 void insertionSort(int *a, int n)
