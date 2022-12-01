@@ -9,7 +9,6 @@ void testAll()
 	clock_t begin;
 	double timeUsed;
 	ofs.open("result.txt", ios::out);
-	clock_t begin;
 	while (type < 4)
 	{
 		switch (type)

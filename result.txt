@@ -1,150 +1,39 @@
 RANDOM DATA
 ==============10000==============
 
-Bubble Sort: 
-Running time: 292ms
-Comparision : 99981585
-Shaker Sort: 224ms
-Running time: 224ms
-Comparision : 66414475
-Selection Sort: 102ms
-Running time: 102ms
+Selection Sort: 221ms
+Running time: 221ms
 Comparision : 100019998
 Insertion Sort: 0ms
 Running time: 0ms
 Comparision : 29998
-Shell Sort: 0ms
-Running time: 0ms
-Comparision : 360028
-Heap Sort: 1ms
+Bubble Sort: 
 Running time: 1ms
-Comparision : 667968
-Merge Sort: 2ms
-Running time: 2ms
-Comparision : 480763
+Comparision : 20001
+Shaker Sort: 0ms
+Running time: 0ms
+Comparision : 20001
+Shell Sort: 1ms
+Running time: 1ms
+Comparision : 360028
+Heap Sort: 3ms
+Running time: 3ms
+Comparision : 668018
+Merge Sort: 3ms
+Running time: 3ms
+Comparision : 480804
 Quick Sort: 1ms
 Running time: 1ms
-Comparision : 249295
-Counting Sort: 1ms
-Running time: 1ms
-Comparision : 49998
-Radix Sort: 
-Running time: 2ms
+Comparision : 249023
+Counting Sort: 0ms
+Running time: 0ms
+Comparision : 59998
+Radix Sort: 4ms
+Running time: 4ms
 Comparision : 500247
 Flash Sort: 1ms
 Running time: 1ms
-Comparision : 113900
-
-==============30000==============
-
-Bubble Sort: 
-Running time: 2902ms
-Comparision : 900055645
-Shaker Sort: 2092ms
-Running time: 2092ms
-Comparision : 596653995
-Selection Sort: 876ms
-Running time: 876ms
-Comparision : 900059998
-Insertion Sort: 0ms
-Running time: 0ms
-Comparision : 89998
-Shell Sort: 1ms
-Running time: 1ms
-Comparision : 1170035
-Heap Sort: 5ms
-Running time: 5ms
-Comparision : 2238889
-Merge Sort: 7ms
-Running time: 7ms
-Comparision : 1578329
-Quick Sort: 2ms
-Running time: 2ms
-Comparision : 843544
-Counting Sort: 0ms
-Running time: 0ms
-Comparision : 149994
-Radix Sort: 
-Running time: 8ms
-Comparision : 1860309
-Flash Sort: 1ms
-Running time: 1ms
-Comparision : 341557
+Comparision : 118336
 
 ==============50000==============
 
-Bubble Sort: 
-Running time: 8170ms
-Comparision : 2500063901
-Shaker Sort: 5903ms
-Running time: 5903ms
-Comparision : 1670353027
-Selection Sort: 2429ms
-Running time: 2429ms
-Comparision : 2500099998
-Insertion Sort: 0ms
-Running time: 0ms
-Comparision : 149998
-Shell Sort: 2ms
-Running time: 2ms
-Comparision : 2100033
-Heap Sort: 9ms
-Running time: 9ms
-Comparision : 3928974
-Merge Sort: 10ms
-Running time: 10ms
-Comparision : 2757249
-Quick Sort: 3ms
-Running time: 3ms
-Comparision : 1485390
-Counting Sort: 1ms
-Running time: 1ms
-Comparision : 232766
-Radix Sort: 
-Running time: 12ms
-Comparision : 3100309
-Flash Sort: 2ms
-Running time: 2ms
-Comparision : 554980
-
-==============100000==============
-
-Bubble Sort: 
-Running time: 33592ms
-Comparision : 9999938880
-Shaker Sort: 23820ms
-Running time: 23820ms
-Comparision : 6679987817
-Selection Sort: 9739ms
-Running time: 9739ms
-Comparision : 10000199998
-Insertion Sort: 0ms
-Running time: 0ms
-Comparision : 299998
-Shell Sort: 5ms
-Running time: 5ms
-Comparision : 4500034
-Heap Sort: 18ms
-Running time: 18ms
-Comparision : 8359373
-Merge Sort: 20ms
-Running time: 20ms
-Comparision : 5851180
-Quick Sort: 7ms
-Running time: 7ms
-Comparision : 3243647
-Counting Sort: 2ms
-Running time: 2ms
-Comparision : 432766
-Radix Sort: 
-Running time: 25ms
-Comparision : 6200309
-Flash Sort: 4ms
-Running time: 4ms
-Comparision : 1038821
-
-==============300000==============
-
-Bubble Sort: 
-Running time: 302970ms
-Comparision : 90000380977
